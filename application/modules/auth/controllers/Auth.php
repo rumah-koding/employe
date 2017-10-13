@@ -19,7 +19,7 @@ class Auth extends CI_Controller {
 	{
 		//echo password_hash('admin', PASSWORD_BCRYPT);
 		
-		$data['title'] 		= 'Login System';
+		$data['title'] 		= 'SIMPEG KALSEL';
 		$data['record'] 	= $this->data->get_all();
 		$data['content'] 	= $this->folder.'default';
 		$data['style'] 		= $this->folder.'style';

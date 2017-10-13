@@ -22,11 +22,11 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>LOGIN</b>SYS</a>
+    <a href="#"><b>SIMPEG</b>KALSEL</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">Silahkan Login Terlebih Dahulu.</p>
 	<?php if($this->session->flashdata('flashconfirm')): ?>
 	<div class="alert alert-success alert-dismissable">
 	  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -53,19 +53,19 @@
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox"> Remember Me
+              <input type="checkbox"> Ingatkan Saya
             </label>
           </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat"><i class="fa fa-sign-in"></i> LOGIN</button>
         </div>
         <!-- /.col -->
       </div>
     <?= form_close(); ?>
-
-    <a href="#">I forgot my password</a><br>
+    <a href="#"></a><br>
+    <img src="<?= base_url('asset/dist/img/RapidSSL_SEAL-90x50.gif'); ?>">
   </div>
   <!-- /.login-box-body -->
 </div>
