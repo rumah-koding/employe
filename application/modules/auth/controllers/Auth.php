@@ -7,6 +7,7 @@ class Auth extends CI_Controller {
 	 * code by rifqie rusyadi
 	 * email rifqie.rusyadi@gmail.com
 	 */
+	
 	public $folder = 'auth/auth/';
 	
 	public function __construct()
