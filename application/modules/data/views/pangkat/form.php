@@ -39,7 +39,7 @@
 						<div class="form-group <?php echo form_error('tglsk') ? 'has-error' : null; ?>">
 							<?php
 							echo form_label('TGL SK Pangkat','tglsk');
-							$data = array('class'=>'form-control','name'=>'tglsk','id'=>'tglsk','type'=>'text','value'=>set_value('tglsk', $record->tglsk));
+							$data = array('class'=>'form-control','name'=>'tglsk','id'=>'tglsk','type'=>'text','value'=>set_value('tglsk', ddmmyyyy($record->tglsk)));
 							echo form_input($data);
 							echo form_error('tglsk') ? form_error('tglsk', '<p class="help-block">','</p>') : '';
 							?>
@@ -49,7 +49,7 @@
 						<div class="form-group <?php echo form_error('tmt') ? 'has-error' : null; ?>">
 							<?php
 							echo form_label('TMT Pangkat','tmt');
-							$data = array('class'=>'form-control','name'=>'tmt','id'=>'tmt','type'=>'text','value'=>set_value('tmt', $record->tmt));
+							$data = array('class'=>'form-control','name'=>'tmt','id'=>'tmt','type'=>'text','value'=>set_value('tmt', ddmmyyyy($record->tmt)));
 							echo form_input($data);
 							echo form_error('tmt') ? form_error('tmt', '<p class="help-block">','</p>') : '';
 							?>

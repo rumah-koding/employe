@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Set to force the use of HTTPS for REST API calls
 |
 */
-$config['force_https'] = FALSE;
+$config['force_https'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

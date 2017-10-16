@@ -63,8 +63,8 @@ class Pangkat extends CI_Controller {
         $data = array(
                 'nip' => $this->input->post('nip'),
 				'sk' => $this->input->post('sk'),
-				'tglsk' => $this->input->post('tglsk'),
-				'tmt' => $this->input->post('tmt'),
+				'tglsk' => yyyymmdd($this->input->post('tglsk')),
+				'tmt' => yyyymmdd($this->input->post('tmt')),
 				'gol' => $this->input->post('gol'),
 				'thn' => $this->input->post('thn'),
 				'bln' => $this->input->post('bln'),
@@ -83,8 +83,8 @@ class Pangkat extends CI_Controller {
         $data = array(
                 'nip' => $this->input->post('nip'),
 				'sk' => $this->input->post('sk'),
-				'tglsk' => $this->input->post('tglsk'),
-				'tmt' => $this->input->post('tmt'),
+				'tglsk' => yyyymmdd($this->input->post('tglsk')),
+				'tmt' => yyyymmdd($this->input->post('tmt')),
 				'gol' => $this->input->post('gol'),
 				'thn' => $this->input->post('thn'),
 				'bln' => $this->input->post('bln'),

@@ -65,8 +65,8 @@ class Cpns extends CI_Controller {
         $data = array(
 			'nip' => $this->input->post('nip'),
 			'sk' => $this->input->post('sk'),
-			'tglsk' => $this->input->post('tglsk'),
-			'tmt' => $this->input->post('tmt'),
+			'tglsk' => yyyymmdd($this->input->post('tglsk')),
+			'tmt' => yyyymmdd($this->input->post('tmt')),
 			'gol' => $this->input->post('gol'),
 			'ktpu' => $this->input->post('ktpu'),
 			'pengesahan' => $this->input->post('pengesahan'),
@@ -83,8 +83,8 @@ class Cpns extends CI_Controller {
     {
         $data = array(
 			'sk' => $this->input->post('sk'),
-			'tglsk' => $this->input->post('tglsk'),
-			'tmt' => $this->input->post('tmt'),
+			'tglsk' => yyyymmdd($this->input->post('tglsk')),
+			'tmt' => yyyymmdd($this->input->post('tmt')),
 			'gol' => $this->input->post('gol'),
 			'ktpu' => $this->input->post('ktpu'),
 			'pengesahan' => $this->input->post('pengesahan'),

@@ -70,8 +70,8 @@ class Pns extends CI_Controller {
         $data = array(
 			'nip' => $this->input->post('nip'),
 			'sk' => $this->input->post('sk'),
-			'tglsk' => $this->input->post('tglsk'),
-			'tmt' => $this->input->post('tmt'),
+			'tglsk' => yyyymmdd($this->input->post('tglsk')),
+			'tmt' => yyyymmdd($this->input->post('tmt')),
 			'gol' => $this->input->post('gol'),
 			'pengesahan' => $this->input->post('pengesahan'),
 			'created_id' => $this->session->userdata('userID')
@@ -87,8 +87,8 @@ class Pns extends CI_Controller {
     {
         $data = array(
 			'sk' => $this->input->post('sk'),
-			'tglsk' => $this->input->post('tglsk'),
-			'tmt' => $this->input->post('tmt'),
+			'tglsk' => yyyymmdd($this->input->post('tglsk')),
+			'tmt' => yyyymmdd($this->input->post('tmt')),
 			'gol' => $this->input->post('gol'),
 			'pengesahan' => $this->input->post('pengesahan'),
 			'updated_id' => $this->session->userdata('userID')
