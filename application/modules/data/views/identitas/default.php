@@ -86,7 +86,7 @@
 				<a href="" class="btn btn-app btn-flat"><i class="fa fa-coffee"></i> CUTI</a>
 				<a href="" class="btn btn-app btn-flat"><i class="fa fa-bar-chart"></i> SKP</a>
 				<a href="" class="btn btn-app btn-flat"><i class="fa fa-exchange"></i> MUTASI</a>
-				<a href="" class="btn btn-app btn-flat"><i class="fa fa-print"></i> BIODATA</a>
+				<a href="<?= site_url('report/biodata/'.$nip); ?>" class="btn btn-app btn-flat" target="_BLANK"><i class="fa fa-print"></i> BIODATA</a>
 				<a href="" class="btn btn-app btn-flat"><i class="fa fa-edit"></i> UBAH NIP</a>
 			</div>
 		</div>

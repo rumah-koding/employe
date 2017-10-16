@@ -87,3 +87,5 @@ $route['data/pendidikan/updated/(:num)'] = 'data/pendidikan/updated';
 $route['data/diklat/(:num)'] = 'data/diklat';
 $route['data/diklat/created/(:num)'] = 'data/diklat/created';
 $route['data/diklat/updated/(:num)'] = 'data/diklat/updated';
+
+$route['report/biodata/(:num)'] = 'report/biodata';

@@ -43,6 +43,23 @@ if (! function_exists('biodata'))
 	}
 }
 
+//cari agama
+if (! function_exists('agama'))
+{
+	function agama($id=null)
+	{
+		$CI =& get_instance();
+		$CI->db->where('id', $id);
+		$CI->db->where('deleted_at', null);
+		$query = $CI->db->get('ref_agama');
+        if($query->num_rows() > 0){
+			return $query->row()->agama;
+		}else{
+            return '-';
+        }
+	}
+}
+
 //cari kedudukan
 if (! function_exists('kedudukan'))
 {
@@ -369,6 +386,40 @@ if (! function_exists('jenis_jabatan'))
 			$kode = 'NEGARAWAN';
 		}else{
 			$kode = 'JFU';
+		}
+		return $kode;
+	}
+}
+
+if (! function_exists('sex'))
+{
+	function sex($id=null)
+	{
+		if($id == 1){
+			$kode = 'LAKI-LAKI';
+		}elseif($id == 2){
+			$kode = 'PEREMPUAN';
+		}else{
+			$kode = '-';
+		}
+		return $kode;
+	}
+}
+
+if (! function_exists('kawin'))
+{
+	function kawin($id=null)
+	{
+		if($id == 1){
+			$kode = 'BELUM MENIKAH';
+		}elseif($id == 2){
+			$kode = 'SUDAH MENIKAH';
+		}elseif($id == 3){
+			$kode = 'DUDA/JANDA CERAI';
+		}elseif($id == 4){
+			$kode = 'DUDA/JANDA MENINGGAL';
+		}else{
+			$kode = '-';
 		}
 		return $kode;
 	}
