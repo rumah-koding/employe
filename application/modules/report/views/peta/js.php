@@ -1,10 +1,4 @@
-<script src="<?php echo base_url(); ?>asset/plugins/tableexport/jquery.min.js"></script>
-<script src="<?php echo base_url(); ?>asset/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>asset/plugins/tableexport/js-xlsx/xlsx.core.min.js"></script>
-<script src="<?php echo base_url(); ?>asset/plugins/tableexport/Blob.js"></script>
-<script src="<?php echo base_url(); ?>asset/plugins/tableexport/FileSaver.min.js"></script>
-<script src="<?php echo base_url(); ?>asset/plugins/tableexport/dist/js/tableexport.js"></script>
-<script>
+<script type="text/javascript">
 $(function () {
 e = $("#tableIDX").tableExport({
         bootstrap: true,
@@ -15,7 +9,7 @@ e = $("#tableIDX").tableExport({
 
 table = $('#tableIDX').DataTable({
     "paging": false,
-    "searching": false,
+    "searching": true,
     "ordering": false,
     "info": false,
     "autoWidth": true,
@@ -34,7 +28,7 @@ table = $('#tableIDX').DataTable({
             api.column(1, {page:'current'} ).data().each( function ( group, i ) {
                 if ( last !== group ) {
                     $(rows).eq( i ).before(
-                        '<tr class="group" ><td colspan="11"><strong>'+group+'</strong></td></tr>'
+                        '<tr class="group" ><td colspan="12"><strong>'+group+'</strong></td></tr>'
                     );
 
                     last = group;
@@ -42,5 +36,5 @@ table = $('#tableIDX').DataTable({
             } );
         }
 		});
-    });
+});
 </script>

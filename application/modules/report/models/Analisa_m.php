@@ -3,14 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Analisa_m extends MY_Model
 {
-	public $table = 'ref_unker'; // you MUST mention the table name
+	public $table = 'ref_satker'; // you MUST mention the table name
 	public $primary_key = 'id'; // you MUST mention the primary key
 	public $fillable = array(); // If you want, you can set an array with the fields that can be filled by insert/update
 	public $protected = array(); // ...Or you can set an array with the fields that cannot be filled by insert/update
 	
 	//ajax datatable
-    public $column_order = array('id','kode','instan','unker',null); //set kolom field database pada datatable secara berurutan
-    public $column_search = array('b.kode','b.unker'); //set kolom field database pada datatable untuk pencarian
+    public $column_order = array('id','kode','satker',null); //set kolom field database pada datatable secara berurutan
+    public $column_search = array('kode','satker'); //set kolom field database pada datatable untuk pencarian
     public $order = array('kode' => 'asc'); //order baku 
 	
 	public function __construct()
@@ -23,11 +23,7 @@ class Analisa_m extends MY_Model
 	//urusan lawan datatable
     private function _get_datatables_query()
     {
-        $this->db->select('a.instansi as instan, b.*');
-		$this->db->from('ref_unker b');
-		$this->db->join('ref_instansi a','a.kode = b.instansi','LEFT');
-		
-		//$this->db->from($this->table);
+        $this->db->from($this->table);
         $i = 0;
         foreach ($this->column_search as $item) // loop column 
         {
@@ -78,7 +74,7 @@ class Analisa_m extends MY_Model
     {
         $this->_get_datatables_query();
         if($_POST['length'] != -1)
-        $this->db->where('a.deleted_at', NULL);
+        $this->db->where('deleted_at', NULL);
         $this->db->limit($_POST['length'], $_POST['start']);
         $query = $this->db->get();
         return $query->result();
@@ -93,12 +89,24 @@ class Analisa_m extends MY_Model
 		}else{
 			return FALSE;
 		}
+    }
+    
+    public function get_satker($id=null)
+	{
+		$query = $this->db->get_where('ref_satker',array('id'=>$id));
+		if($query->num_rows() > 0)
+		{
+			return $query->row();
+		}else{
+			return FALSE;
+		}
 	}
 	
 	public function get_analisa($id=null)
 	{
-		$query = $this->db->query("SELECT a.parent_id, a.kode, (CASE WHEN a.parent_id IS NULL THEN a.kode ELSE a.parent_id END) AS sort, a.order_id, a.satker, b.jabatan, b.tmt, b.eselon, b.nip  FROM simpeg_ref_satker a LEFT JOIN simpeg_jabatan_akhir b ON a.kode = b.satker_id where a.unker_id = {$id} ORDER BY a.kode ASC, sort ASC, b.eselon ASC");
-		if($query->num_rows() > 0)
+		//$query = $this->db->query("SELECT a.parent_id, a.kode, (CASE WHEN a.parent_id IS NULL THEN a.kode ELSE a.parent_id END) AS sort, a.order_id, a.satker, b.jabatan, b.tmt, b.eselon, b.nip  FROM simpeg_ref_satker a LEFT JOIN simpeg_jabatan_akhir b ON a.kode = b.satker_id where a.unker_id = {$id} ORDER BY a.kode ASC, sort ASC, b.eselon ASC");
+        $query = $this->db->query("SELECT a.kode, a.satker, a.parent_id, a.level, b.nip, b.jabatan, b.tmt, b.eselon, c.jenis FROM simpeg_view_satker a LEFT JOIN simpeg_jabatan_akhir b on a.kode = b.satker_id LEFT JOIN simpeg_ref_jabatan c ON b.jabatan_id = c.kode WHERE a.kode = '{$id}' OR a.path LIKE '%{$id}%' ORDER BY COALESCE(NULLIF(a.parent_id,0),a.kode),a.kode, b.eselon, c.jenis");
+        if($query->num_rows() > 0)
 		{
 			return $query->result();
 		}else{

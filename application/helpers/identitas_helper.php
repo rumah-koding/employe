@@ -340,8 +340,8 @@ if (! function_exists('analisa'))
 				$bos = null;
 			}
 			
-			$pimpinan = pangkat_akhir($bos) ? pangkat_akhir($bos)->golongan : 0;
-			$pangkat = pangkat_akhir($nip) ? pangkat_akhir($nip)->golongan : 0;
+			$pimpinan = pangkat_akhir($bos) ? pangkat_akhir($bos)->gol : 0;
+			$pangkat = pangkat_akhir($nip) ? pangkat_akhir($nip)->gol : 0;
 			if($pimpinan != 0){
 				if($pangkat > $pimpinan){
 					return 'Pangkat Lebih Tinggi Dari Pengawas';
@@ -354,5 +354,22 @@ if (! function_exists('analisa'))
 		}else{
 			return '-';
 		}
+	}
+}
+
+if (! function_exists('jenis_jabatan'))
+{
+	function jenis_jabatan($kode=null)
+	{
+		if($kode == 1){
+			$kode = 'STRUKTURAL';
+		}elseif($kode == 2){
+			$kode = 'JFT';
+		}elseif($kode == 3){
+			$kode = 'NEGARAWAN';
+		}else{
+			$kode = 'JFU';
+		}
+		return $kode;
 	}
 }

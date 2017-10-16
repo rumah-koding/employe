@@ -41,8 +41,7 @@ class Analisa extends CI_Controller {
             $col = array();
             $col[] = '<input type="checkbox" class="data-check" value="'.$row->id.'">';
             $col[] = $row->kode;
-			$col[] = $row->unker;
-			$col[] = $row->instan;
+			$col[] = $row->satker;
             
             //add html for action
             $col[] = '<a class="btn btn-xs btn-flat btn-info" onclick="edit_data();" href="'.site_url('report/analisa/detail/'.$row->id).'" data-toggle="tooltip" title="Lihat"><i class="fa fa-file-text"></i></a>
@@ -64,10 +63,10 @@ class Analisa extends CI_Controller {
 	public function detail($id)
 	{
 		
-		$nunker = $this->data->get_nunker($id);
+		$satker = $this->data->get_satker($id);
 		
-		$data['head'] 		= $nunker ? 'ANALISA JABATAN - '.$nunker->unker : 'ANALISA JABATAN';
-		$data['record'] 	= $this->data->get_analisa($nunker->kode);
+		$data['head'] 		= $satker ? 'ANALISA JABATAN - '.$satker->satker : 'ANALISA JABATAN';
+		$data['record'] 	= $this->data->get_analisa($satker->kode);
 		$data['content'] 	= $this->folder.'detail';
 		$data['style'] 		= $this->folder.'style';
 		$data['js'] 		= $this->folder.'js';

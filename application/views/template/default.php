@@ -8,9 +8,10 @@
   <link rel="stylesheet" href="<?= base_url('asset/bootstrap/css/bootstrap.min.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('asset/plugins/datatables/dataTables.bootstrap.css'); ?>">
 	<link rel="stylesheet" href="<?= base_url('asset/plugins/datatables/extensions/Responsive/css/responsive.bootstrap.min.css'); ?>">
+  <link rel="stylesheet" href="<?= base_url('asset/plugins/tableexport/dist/css/tableexport.min.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('asset/plugins/datepicker/datepicker3.css'); ?>" />
 	<link rel="stylesheet" href="<?= base_url('asset/plugins/select2/select2.min.css'); ?>" />
-	<link rel="stylesheet" href="<?= base_url('asset/font-awesome/css/font-awesome.min.css'); ?>">
+  <link rel="stylesheet" href="<?= base_url('asset/font-awesome/css/font-awesome.min.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('asset/ionicons/css/ionicons.min.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('asset/dist/css/AdminLTE.min.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('asset/dist/css/skins/_all-skins.min.css'); ?>">
@@ -164,7 +165,6 @@
 <!-- ./wrapper -->
 
 <script src="<?= base_url('asset/plugins/jQuery/jquery-2.2.3.min.js'); ?>"></script>
-<script src="<?= base_url('asset/plugins/treetable/treeTable.js'); ?>"></script>
 <script src="<?= base_url('asset/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/slimScroll/jquery.slimscroll.min.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/fastclick/fastclick.js'); ?>"></script>
@@ -173,6 +173,10 @@
 <script src="<?= base_url('asset/plugins/datatables/dataTables.bootstrap.min.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/datatables/extensions/Responsive/js/responsive.bootstrap.min.js'); ?>"></script>
+<script src="<?= base_url('asset/plugins/tableexport/js-xlsx/xlsx.core.min.js'); ?>"></script>
+<script src="<?= base_url('asset/plugins/tableexport/Blob.js'); ?>"></script>
+<script src="<?= base_url('asset/plugins/tableexport/FileSaver.min.js'); ?>"></script>
+<script src="<?= base_url('asset/plugins/tableexport/dist/js/tableexport.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/datepicker/bootstrap-datepicker.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/input-mask/jquery.inputmask.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>"></script>

@@ -13,7 +13,7 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-md-12">
-						<table id="tableIDX" class="table table-striped table-bordered responsive nowrap print" cellspacing="0" width="100%">
+						<table id="tableIDX" class="table table-striped table-bordered responsive nowrap print tree" cellspacing="0" width="100%">
 							<thead>
 								<tr>
 									<th>No</th>
@@ -26,6 +26,7 @@
 									<th>Golongan</th>
 									<th>TMT</th>
 									<th>Pendidikan Akhir</th>
+									<th>Jenis</th>
 									<th>Keterangan</th>
 								</tr>
 							</thead>
@@ -33,7 +34,7 @@
 								<?php if($record): ?>
 								<?php $no = 1; ?>
 								<?php foreach($record as $row): ?>
-								<tr>
+								<tr class="treegrid-<?= $row->kode; ?> treegrid-parent-<?= $row->parent_id; ?>">
 									<td><?= $no; ?></td>
 									<td><?= $row->satker; ?></td>
 									<td><?= $row->jabatan; ?></td>
@@ -44,6 +45,7 @@
 									<td><?= pangkat_akhir($row->nip) ? gol(pangkat_akhir($row->nip)->gol) : '-'; ?></td>
 									<td nowrap><?= pangkat_akhir($row->nip) ? ddmmyyyy(pangkat_akhir($row->nip)->tmt) : '-'; ?></td>
 									<td><?= ktpu_akhir($row->nip) ? ktpu_akhir($row->nip)->jurusan : '-'; ?></td>
+									<td><?= jenis_jabatan($row->jenis); ?></td>
 									<td>-</td>
 								</tr>
 								<?php $no++; ?>

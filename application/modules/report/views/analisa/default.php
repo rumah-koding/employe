@@ -22,8 +22,7 @@
 								<tr>
 									<th width="5px"><input type="checkbox" id="check-all"></th>
 									<th>Kode</th>
-									<th>Unit Kerja</th>
-									<th>Instansi</th>
+									<th>Satuan Kerja</th>
 									<th width="10px">Aksi</th>
 								</tr>
 							</thead>
