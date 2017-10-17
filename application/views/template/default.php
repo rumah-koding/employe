@@ -71,6 +71,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-print"></i> Laporan <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="<?= site_url('report/pangkat'); ?>" target="_BLANK"><i class="fa fa-file-text-o"></i> Laporan Nominatif Pangkat</a></li>
+                <li><a href="<?= site_url('report/pkt'); ?>"><i class="fa fa-file-text-o"></i> Laporan Nominatif Pangkat SOPD</a></li>
 								<li><a href="<?= site_url('report/jabatan'); ?>" target="_BLANK"><i class="fa fa-file-text-o"></i> Laporan Nominatif Tingkat Jabatan</a></li>
 								<li class="divider"></li>
 								<li><a href="<?= site_url('report/peta'); ?>"><i class="fa fa-file-text-o"></i> Laporan Pemetaan</a></li>

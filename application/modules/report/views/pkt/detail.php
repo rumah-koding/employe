@@ -4,20 +4,20 @@
 		<title>DAFTAR NOMINATIF PEGAWAI KALSEL</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="<?= base_url('asset/dist/css/print_fullpage.css'); ?>" />
 		<link rel="stylesheet" href="<?= base_url('asset/plugins/tableexport/dist/css/tableexport.min.css'); ?>">
   		<link rel="stylesheet" href="<?= base_url('asset/plugins/pace/themes/blue/pace-theme-loading-bar.css'); ?>" />
-		<link rel="stylesheet" href="<?= base_url('asset/dist/css/print_fullpage.css'); ?>" />
 	</head>
 <body>
 <div class="book">
     <div class="page">
 	<div class="title">
             <div class="logo"><img src="<?php echo base_url('asset/dist/img/kalsel-114.png'); ?>" width="36px"></div>
-            <div class="judul"><h3>DAFTAR NOMINATIF PEGAWAI BERDASARKAN TINGKAT JABATAN <br>PEMERINTAH PROVINSI KALIMANTAN SELATAN</h3></div>
+            <div class="judul"><h3>DAFTAR NOMINATIF PEGAWAI BERDASARKAN PANGKAT <br><?= $head; ?><br>PEMERINTAH PROVINSI KALIMANTAN SELATAN</h3></div>
     </div>
 	<!-- identitas -->
 	<div class="tabel">
-		<table class="print" id="tableID">
+	<table class="print" id="tableID">
 		<thead>
 		<tr>
 			<th rowspan="2">URUT</th>
@@ -55,26 +55,26 @@
 			<td class="text"><?php echo $row->nip; ?></td>
 			<td><?php echo pangkat_akhir($row->nip) ? gol(pangkat_akhir($row->nip)->gol) : '-'; ?></td>
 			<td class="text"><?php echo ddmmyyyy($row->tmtgol); ?></td>
-			<td><?php echo jabatan_akhir($row->nip)->jabatan ? jabatan_akhir($row->nip)->jabatan : '-'; ?></td>
+			<td><?php echo jabatan_akhir($row->nip) ? jabatan_akhir($row->nip)->jabatan : '-'; ?></td>
 			<td><?php echo eselon($row->eselon); ?></td>
 			<td class="text"><?php echo ddmmyyyy($row->tmtjab); ?></td>
-			<td><?php echo jabatan_akhir($row->nip)->unker ? jabatan_akhir($row->nip)->unker : '-'; ?></td>
+			<td><?php echo jabatan_akhir($row->nip) ? jabatan_akhir($row->nip)->unker : '-'; ?></td>
 			<td><?php echo '-'; ?></td>
 			<td><?php echo '-'; ?></td>
 			<td><?php echo '-'; ?></td>
 			<td><?php echo '-'; ?></td>
-			<td><?php echo ktpu_akhir($row->nip)->jurusan ? ktpu_akhir($row->nip)->jurusan : '-'; ?></td>
-			<td class="text"><?php echo ktpu_akhir($row->nip)->tahun ? ktpu_akhir($row->nip)->tahun : '-'; ?></td>
-			<td><?php echo ktpu_akhir($row->nip)->ktpu ? ktpu(ktpu_akhir($row->nip)->ktpu) : '-'; ?></td>
+			<td><?php echo ktpu_akhir($row->nip) ? ktpu_akhir($row->nip)->jurusan : '-'; ?></td>
+			<td class="text"><?php echo ktpu_akhir($row->nip) ? ktpu_akhir($row->nip)->tahun : '-'; ?></td>
+			<td><?php echo ktpu_akhir($row->nip) ? ktpu(ktpu_akhir($row->nip)->ktpu) : '-'; ?></td>
 			<td><?php echo age($row->tglahir); ?></td>
 			</tr>
 			<?php ++$i; ?>
 			<?php endforeach; ?>
-			<?php endif; ?>
+		<?php endif; ?>
 		</tbody>
 	</table>
 </div>
-	<p><?php //echo '<img src="'.site_url('report/jabatan/barcode/0123456789').'">'; ?></p>
+	<p><?php //echo '<img src="'.site_url('report/pangkat/barcode/0123456789').'">'; ?></p>
 </div>
 </div>
 <script src="<?= base_url('asset/plugins/jQuery/jquery-2.2.3.min.js'); ?>"></script>
@@ -90,7 +90,7 @@ e = $("#tableID").tableExport({
         bootstrap: true,
         formats: ["xlsx","txt"],
         position: "top",
-        fileName: "DAFTAR NOMINATIF BERDASARKAN TINGKAT JABATAN-<?php echo date('dmy'); ?>",
+        fileName: "DAFTAR NOMINATIF PANGKAT-<?php echo $head; ?>",
     });
 });
 </script>

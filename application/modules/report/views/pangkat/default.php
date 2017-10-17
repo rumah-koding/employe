@@ -17,7 +17,7 @@
     </div>
 	<!-- identitas -->
 	<div class="tabel">
-		<table class="print" id="tableID">
+	<table class="print" id="tableID">
 		<thead>
 		<tr>
 			<th rowspan="2">URUT</th>
@@ -46,11 +46,32 @@
 		</tr>
 		</thead>
 		<tbody>
+		<?php if($record): ?>
+			<?php $i = 1; ?>
+			<?php foreach($record as $row): ?>
 			<tr>
-				<th colspan="17"><div id="message"></div></th>
+			<td><?php echo number_format($i); ?></td>
+			<td class="text"><?php echo nama($row->nip); ?></td>
+			<td class="text"><?php echo $row->nip; ?></td>
+			<td><?php echo pangkat_akhir($row->nip) ? gol(pangkat_akhir($row->nip)->gol) : '-'; ?></td>
+			<td class="text"><?php echo ddmmyyyy($row->tmtgol); ?></td>
+			<td><?php echo jabatan_akhir($row->nip) ? jabatan_akhir($row->nip)->jabatan : '-'; ?></td>
+			<td><?php echo eselon($row->eselon); ?></td>
+			<td class="text"><?php echo ddmmyyyy($row->tmtjab); ?></td>
+			<td><?php echo jabatan_akhir($row->nip) ? jabatan_akhir($row->nip)->unker : '-'; ?></td>
+			<td><?php echo '-'; ?></td>
+			<td><?php echo '-'; ?></td>
+			<td><?php echo '-'; ?></td>
+			<td><?php echo '-'; ?></td>
+			<td><?php echo ktpu_akhir($row->nip) ? ktpu_akhir($row->nip)->jurusan : '-'; ?></td>
+			<td class="text"><?php echo ktpu_akhir($row->nip) ? ktpu_akhir($row->nip)->tahun : '-'; ?></td>
+			<td><?php echo ktpu_akhir($row->nip) ? ktpu(ktpu_akhir($row->nip)->ktpu) : '-'; ?></td>
+			<td><?php echo age($row->tglahir); ?></td>
 			</tr>
+			<?php ++$i; ?>
+			<?php endforeach; ?>
+		<?php endif; ?>
 		</tbody>
-		
 	</table>
 </div>
 	<p><?php //echo '<img src="'.site_url('report/pangkat/barcode/0123456789').'">'; ?></p>
@@ -64,31 +85,40 @@
 <script src="<?= base_url('asset/plugins/tableexport/dist/js/tableexport.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/pace/pace.min.js'); ?>"></script>
 <script type="text/javascript">
-$(document).ajaxStart(function() { Pace.restart(); });
-
+<script type="text/javascript">
 $(function () {
-	//Pace.start
-	$.ajax({
-		type: "GET",
-		async: false,
-		url : "<?php echo site_url('report/pangkat/get_data')?>",
-		data: {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'},
-		success: function(result) {
-			//Pace.stop
-			$('#tableID').html(result);
-			$("#tableID").tableExport({
-				bootstrap: true,
-				formats: ["xlsx","txt"],
-				position: "top",
-				fileName: "DAFTAR NOMINATIF BERDASARKAN PANGKAT-<?php echo date('dmyyyy'); ?>",
-			});
-		},
-		error: function(errorMsg) {
-			//Pace.stop
-			$('#message').text('Error Dalam Melakukan Load Data Harap Coba Kembali.');
-		}
-	});
+e = $("#tableID").tableExport({
+        bootstrap: true,
+        formats: ["xlsx","txt"],
+        position: "top",
+        fileName: "DAFTAR NOMINATIF BERDASARKAN PANGKAT-<?php echo date('dmy'); ?>",
+    });
 });
+</script>
+// $(document).ajaxStart(function() { Pace.restart(); });
+// $(function () {
+// 	//Pace.start
+// 	$.ajax({
+// 		type: "GET",
+// 		async: false,
+// 		url : "<?php echo site_url('report/pangkat/get_data')?>",
+// 		data: {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'},
+// 		success: function(result) {
+// 			//Pace.stop
+// 			$('#tableID').html(result);
+// 			$("#tableID").tableExport({
+// 				bootstrap: true,
+// 				formats: ["xlsx","txt"],
+// 				position: "top",
+// 				fileName: "DAFTAR NOMINATIF BERDASARKAN PANGKAT-<?php echo date('dmyyyy'); ?>",
+// 			});
+// 		},
+// 		error: function(errorMsg) {
+// 			//Pace.stop
+// 			$('#message').text('Error Dalam Melakukan Load Data Harap Coba Kembali.');
+// 		}
+// 	});
+// });
 </script>
 </body>
 </html>
