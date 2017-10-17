@@ -68,8 +68,8 @@
 						<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-print"></i> Laporan <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#"><i class="fa fa-file-text-o"></i> Laporan Nominatif Pangkat</a></li>
-								<li><a href="#"><i class="fa fa-file-text-o"></i> Laporan Nominatif Jabatan</a></li>
+                <li><a href="<?= site_url('report/pangkat'); ?>"><i class="fa fa-file-text-o"></i> Laporan Nominatif Pangkat</a></li>
+								<li><a href="<?= site_url('report/jabatan'); ?>"><i class="fa fa-file-text-o"></i> Laporan Nominatif Tingkat Jabatan</a></li>
 								<li class="divider"></li>
 								<li><a href="<?= site_url('report/peta'); ?>"><i class="fa fa-file-text-o"></i> Laporan Pemetaan</a></li>
 								<li><a href="<?= site_url('report/analisa'); ?>"><i class="fa fa-file-text-o"></i> Laporan Analisa Jabatan</a></li>
