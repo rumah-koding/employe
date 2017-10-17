@@ -26,8 +26,15 @@ class Pangkat extends CI_Controller {
 		$data['content'] 	= $this->folder.'default';
 		$data['style'] 		= $this->folder.'style';
 		$data['js'] 		= $this->folder.'js';
-		$data['record']		= $this->data->get_record();
+		
+		$this->load->view($data['content'], $data);
+	}
 
+	public function get_data()
+	{
+		ini_set('memory_limit', '-1');
+		$data['content'] 	= $this->folder.'detail';
+		$data['record']		= $this->data->get_record();
 		$this->load->view($data['content'], $data);
 	}
 

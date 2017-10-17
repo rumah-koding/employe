@@ -11,12 +11,13 @@
   <link rel="stylesheet" href="<?= base_url('asset/plugins/tableexport/dist/css/tableexport.min.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('asset/plugins/datepicker/datepicker3.css'); ?>" />
 	<link rel="stylesheet" href="<?= base_url('asset/plugins/select2/select2.min.css'); ?>" />
-  <link rel="stylesheet" href="<?= base_url('asset/plugins/pace/themes/blue/pace-theme-loading-bar.css'); ?>" />
   <link rel="stylesheet" href="<?= base_url('asset/font-awesome/css/font-awesome.min.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('asset/ionicons/css/ionicons.min.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('asset/dist/css/AdminLTE.min.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('asset/dist/css/skins/_all-skins.min.css'); ?>">
-	<?= isset($style) ? $this->load->view($style) : ''; ?>
+	<script src="<?= base_url('asset/plugins/pace/pace.min.js'); ?>"></script>
+  <link rel="stylesheet" href="<?= base_url('asset/plugins/pace/themes/blue/pace-theme-loading-bar.css'); ?>" />
+  <?= isset($style) ? $this->load->view($style) : ''; ?>
 	<!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -182,7 +183,6 @@
 <script src="<?= base_url('asset/plugins/input-mask/jquery.inputmask.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/select2/select2.full.min.js'); ?>"></script>
-<script src="<?= base_url('asset/plugins/pace/pace.min.js'); ?>"></script>
 <script src="<?= base_url('asset/app.js'); ?>"></script>
 <?= isset($js) ? $this->load->view($js) : ''; ?>
 

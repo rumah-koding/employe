@@ -335,7 +335,7 @@ if (! function_exists('jabatan_akhir'))
         if($query->num_rows() > 0){
 			return $query->row();
 		}else{
-            return '-';
+            return FALSE;
         }
 	}
 }
