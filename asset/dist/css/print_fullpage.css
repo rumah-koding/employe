@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font: 7px "tahoma";
+}
+
+*{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.page {
+    width: 100%;
+    /* min-height: 21cm; */
+    padding: 0.2cm;
+    margin: 0.2cm auto;
+    border: 1px #cfcfcf solid;
+    background: white;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.logo{
+    /* float: left; */
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.judul{
+    padding-top: 10px;
+}
+
+.title h2, .title h3, .title p{
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+@page {
+    size: A4 landscape;
+}
+
+@media print {
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        padding: 0.2cm;
+        margin: 0.2cm auto;
+        page-break-after: always;
+    }
+    
+    caption{
+        display: none;
+    }
+
+    table { page-break-inside:avoid }
+    tr    { page-break-inside:avoid; page-break-after:auto }
+    thead { display:table-header-group;  -webkit-print-color-adjust: exact;  }
+    tfoot { display:table-footer-group }
+}
+
+h2{
+    margin: 0px;
+    padding-top : 10px;
+    padding-bottom: 5px; 
+}
+
+table.print {
+    border: 1px solid black;
+    width: 100%;
+}
+
+table.print th{
+    background-color: #000;
+    color: white;
+    text-align: center;
+}
+
+table.print tr td{
+    text-align: left;
+    vertical-align: top;
+}
+
+caption{
+    margin-bottom : 20px;
+}
+
+.num {
+    mso-number-format:General;
+}
+
+.text{
+    mso-number-format:"\@";/*force text*/
+}

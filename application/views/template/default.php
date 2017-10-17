@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="<?= base_url('asset/plugins/tableexport/dist/css/tableexport.min.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('asset/plugins/datepicker/datepicker3.css'); ?>" />
 	<link rel="stylesheet" href="<?= base_url('asset/plugins/select2/select2.min.css'); ?>" />
+  <link rel="stylesheet" href="<?= base_url('asset/plugins/pace/themes/blue/pace-theme-loading-bar.css'); ?>" />
   <link rel="stylesheet" href="<?= base_url('asset/font-awesome/css/font-awesome.min.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('asset/ionicons/css/ionicons.min.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('asset/dist/css/AdminLTE.min.css'); ?>">
@@ -68,8 +69,8 @@
 						<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-print"></i> Laporan <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="<?= site_url('report/pangkat'); ?>"><i class="fa fa-file-text-o"></i> Laporan Nominatif Pangkat</a></li>
-								<li><a href="<?= site_url('report/jabatan'); ?>"><i class="fa fa-file-text-o"></i> Laporan Nominatif Tingkat Jabatan</a></li>
+                <li><a href="<?= site_url('report/pangkat'); ?>" target="_BLANK"><i class="fa fa-file-text-o"></i> Laporan Nominatif Pangkat</a></li>
+								<li><a href="<?= site_url('report/jabatan'); ?>" target="_BLANK"><i class="fa fa-file-text-o"></i> Laporan Nominatif Tingkat Jabatan</a></li>
 								<li class="divider"></li>
 								<li><a href="<?= site_url('report/peta'); ?>"><i class="fa fa-file-text-o"></i> Laporan Pemetaan</a></li>
 								<li><a href="<?= site_url('report/analisa'); ?>"><i class="fa fa-file-text-o"></i> Laporan Analisa Jabatan</a></li>
@@ -181,6 +182,7 @@
 <script src="<?= base_url('asset/plugins/input-mask/jquery.inputmask.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/select2/select2.full.min.js'); ?>"></script>
+<script src="<?= base_url('asset/plugins/pace/pace.min.js'); ?>"></script>
 <script src="<?= base_url('asset/app.js'); ?>"></script>
 <?= isset($js) ? $this->load->view($js) : ''; ?>
 

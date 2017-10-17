@@ -4,95 +4,9 @@
 		<title>DAFTAR NOMINATIF PEGAWAI KALSEL</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<style type="text/css">
-			body {
-				margin: 0;
-				padding: 0;
-				background-color: #fff;
-				font: 7px "tahoma";
-			}
-			
-			*{
-				box-sizing: border-box;
-				-moz-box-sizing: border-box;
-			}
-			
-			.page {
-				width: 100%;
-				/* min-height: 21cm; */
-				padding: 0.2cm;
-				margin: 0.2cm auto;
-				border: 1px #cfcfcf solid;
-				background: white;
-				box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-			}
-
-			.logo{
-				/* float: left; */
-			}
-			
-			.title{
-				text-align: center;
-				margin-bottom: 20px;
-			}
-
-			.judul{
-				padding-top: 10px;
-			}
-			
-			.title h2, .title h3, .title p{
-				margin: 0;
-				padding: 0;
-				text-transform: uppercase;
-				margin-bottom: 10px;
-			}
-
-			@page {
-				size: A4 landscape;
-			}
-			
-			@media print {
-				.page {
-					margin: 0;
-					border: initial;
-					border-radius: initial;
-					width: initial;
-					min-height: initial;
-					box-shadow: initial;
-					background: initial;
-					padding: 0.2cm;
-					margin: 0.2cm auto;
-					page-break-after: always;
-				}
-				
-				table { page-break-inside:avoid }
-				tr    { page-break-inside:avoid; page-break-after:auto }
-				thead { display:table-header-group;  -webkit-print-color-adjust: exact;  }
-				tfoot { display:table-footer-group }
-			}
-			
-			h2{
-				margin: 0px;
-				padding-top : 10px;
-				padding-bottom: 5px; 
-			}
-			
-			table.print {
-				border: 1px solid black;
-				width: 100%;
-			}
-			
-			table.print th{
-				background-color: #000;
-				color: white;
-				text-align: center;
-			}
-			
-			table.print tr td{
-				text-align: left;
-				vertical-align: top;
-			}
-		</style>
+		<link rel="stylesheet" href="<?= base_url('asset/dist/css/print_fullpage.css'); ?>" />
+		<link rel="stylesheet" href="<?= base_url('asset/plugins/tableexport/dist/css/tableexport.min.css'); ?>">
+  		<link rel="stylesheet" href="<?= base_url('asset/plugins/pace/themes/blue/pace-theme-loading-bar.css'); ?>" />
 	</head>
 <body>
 <div class="book">
@@ -137,20 +51,20 @@
 			<?php foreach($record as $row): ?>
 			<tr>
 			<td><?php echo $i; ?></td>
-			<td><?php echo nama($row->nip); ?></td>
-			<td><?php echo $row->nip; ?></td>
+			<td class="text"><?php echo nama($row->nip); ?></td>
+			<td class="text"><?php echo $row->nip; ?></td>
 			<td><?php echo pangkat_akhir($row->nip)->gol ? pkt(pangkat_akhir($row->nip)->gol) : '-'; ?></td>
-			<td><?php echo ddmmyyyy($row->tmtgol); ?></td>
+			<td class="text"><?php echo ddmmyyyy($row->tmtgol); ?></td>
 			<td><?php echo jabatan_akhir($row->nip)->jabatan ? jabatan_akhir($row->nip)->jabatan : '-'; ?></td>
 			<td><?php echo eselon($row->eselon); ?></td>
-			<td><?php echo ddmmyyyy($row->tmtjab); ?></td>
+			<td class="text"><?php echo ddmmyyyy($row->tmtjab); ?></td>
 			<td><?php echo jabatan_akhir($row->nip)->unker ? jabatan_akhir($row->nip)->unker : '-'; ?></td>
 			<td><?php echo '-'; ?></td>
 			<td><?php echo '-'; ?></td>
 			<td><?php echo '-'; ?></td>
 			<td><?php echo '-'; ?></td>
 			<td><?php echo ktpu_akhir($row->nip)->jurusan ? ktpu_akhir($row->nip)->jurusan : '-'; ?></td>
-			<td><?php echo ktpu_akhir($row->nip)->tahun ? ktpu_akhir($row->nip)->tahun : '-'; ?></td>
+			<td class="text"><?php echo ktpu_akhir($row->nip)->tahun ? ktpu_akhir($row->nip)->tahun : '-'; ?></td>
 			<td><?php echo ktpu_akhir($row->nip)->ktpu ? ktpu(ktpu_akhir($row->nip)->ktpu) : '-'; ?></td>
 			<td><?php echo age($row->tglahir); ?></td>
 			</tr>
@@ -160,8 +74,25 @@
 		</tbody>
 	</table>
 </div>
-	<p><?php echo '<img src="'.site_url('report/pangkat/barcode/0123456789').'">'; ?></p>
+	<p><?php //echo '<img src="'.site_url('report/pangkat/barcode/0123456789').'">'; ?></p>
 </div>
 </div>
+<script src="<?= base_url('asset/plugins/jQuery/jquery-2.2.3.min.js'); ?>"></script>
+<script src="<?= base_url('asset/plugins/tableexport/jquery.min.js'); ?>"></script>
+<script src="<?= base_url('asset/plugins/tableexport/js-xlsx/xlsx.core.min.js'); ?>"></script>
+<script src="<?= base_url('asset/plugins/tableexport/Blob.js'); ?>"></script>
+<script src="<?= base_url('asset/plugins/tableexport/FileSaver.min.js'); ?>"></script>
+<script src="<?= base_url('asset/plugins/tableexport/dist/js/tableexport.js'); ?>"></script>
+<script src="<?= base_url('asset/plugins/pace/pace.min.js'); ?>"></script>
+<script type="text/javascript">
+$(function () {
+e = $("#tableID").tableExport({
+        bootstrap: true,
+        formats: ["xlsx","txt"],
+        position: "top",
+        fileName: "DAFTAR NOMINATIF BERDASARKAN PANGKAT-<?php echo date('dmyyyy'); ?>",
+    });
+});
+</script>
 </body>
 </html>
