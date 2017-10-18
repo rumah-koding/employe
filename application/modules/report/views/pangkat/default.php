@@ -94,31 +94,5 @@ e = $("#tableID").tableExport({
         fileName: "DAFTAR NOMINATIF BERDASARKAN PANGKAT-<?php echo date('dmy'); ?>",
     });
 });
-</script>
-// $(document).ajaxStart(function() { Pace.restart(); });
-// $(function () {
-// 	//Pace.start
-// 	$.ajax({
-// 		type: "GET",
-// 		async: false,
-// 		url : "<?php echo site_url('report/pangkat/get_data')?>",
-// 		data: {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'},
-// 		success: function(result) {
-// 			//Pace.stop
-// 			$('#tableID').html(result);
-// 			$("#tableID").tableExport({
-// 				bootstrap: true,
-// 				formats: ["xlsx","txt"],
-// 				position: "top",
-// 				fileName: "DAFTAR NOMINATIF BERDASARKAN PANGKAT-<?php echo date('dmyyyy'); ?>",
-// 			});
-// 		},
-// 		error: function(errorMsg) {
-// 			//Pace.stop
-// 			$('#message').text('Error Dalam Melakukan Load Data Harap Coba Kembali.');
-// 		}
-// 	});
-// });
-</script>
 </body>
 </html>
