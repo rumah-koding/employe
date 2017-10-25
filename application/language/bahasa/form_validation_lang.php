@@ -68,3 +68,4 @@ $lang['form_validation_error_message_not_set']	= 'Tidak dapat mengakses pesan ke
 $lang['form_validation_in_list']				= 'Bagian {field} harus salah dari : {param}.';
 $lang['form_validation_id_unique'] 				= 'Bagian {field} sudah ada atau harus unik.';
 $lang['form_validation_nip_unique'] 			= 'Bagian {field} sudah ada atau harus unik.';
+$lang['form_validation_user_unique'] 		= 'Bagian {field} sudah ada atau harus unik.';

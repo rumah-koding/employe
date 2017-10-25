@@ -105,7 +105,7 @@ class Analisa_m extends MY_Model
 	public function get_analisa($id=null)
 	{
 		//$query = $this->db->query("SELECT a.parent_id, a.kode, (CASE WHEN a.parent_id IS NULL THEN a.kode ELSE a.parent_id END) AS sort, a.order_id, a.satker, b.jabatan, b.tmt, b.eselon, b.nip  FROM simpeg_ref_satker a LEFT JOIN simpeg_jabatan_akhir b ON a.kode = b.satker_id where a.unker_id = {$id} ORDER BY a.kode ASC, sort ASC, b.eselon ASC");
-        $query = $this->db->query("SELECT a.kode, a.satker, a.parent_id, a.level, b.nip, b.jabatan, b.tmt, b.eselon, c.jenis FROM simpeg_view_satker a LEFT JOIN simpeg_jabatan_akhir b on a.kode = b.satker_id LEFT JOIN simpeg_ref_jabatan c ON b.jabatan_id = c.kode WHERE a.kode = '{$id}' OR a.path LIKE '%{$id}%' ORDER BY COALESCE(NULLIF(a.parent_id,0),a.kode),a.kode, b.eselon, c.jenis");
+        $query = $this->db->query("SELECT a.kode, a.satker, a.parent_id, a.level, b.nip, b.jabatan, b.tmt, b.eselon, c.jenis FROM simpeg_view_satker a LEFT JOIN simpeg_jabatan_akhir b on a.kode = b.satker_id LEFT JOIN simpeg_ref_jabatan c ON b.jabatan_id = c.kode WHERE a.kode = '{$id}' OR a.path LIKE '%{$id}%' GROUP BY b.nip ORDER BY COALESCE(NULLIF(a.parent_id,0),a.kode),a.kode, b.eselon, c.jenis");
         if($query->num_rows() > 0)
 		{
 			return $query->result();

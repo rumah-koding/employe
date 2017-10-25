@@ -22,7 +22,7 @@ class Pangkat_m extends MY_Model
 	
     public function get_record($id=null)
 	{
-		$query = $this->db->query('SELECT a.nip, a.tglahir, b.gol, b.tmt as tmtgol, c.eselon, c.tmt as tmtjab, d.ktpu, d.tanggal FROM simpeg_identitas a LEFT JOIN simpeg_pangkat_akhir b ON a.nip = b.nip LEFT JOIN simpeg_jabatan_akhir c ON a.nip = c.nip LEFT JOIN simpeg_pendidikan_akhir d ON a.nip = d.nip WHERE a.status_id IN (1,2) ORDER BY c.eselon ASC, c.tmt ASC, b.gol DESC, b.tmt ASC, d.ktpu DESC, d.tanggal ASC');
+		$query = $this->db->query('SELECT a.nip, a.tglahir, b.gol, b.tmt as tmtgol, c.eselon, c.tmt as tmtjab, d.ktpu, d.tanggal FROM simpeg_identitas a LEFT JOIN simpeg_pangkat_akhir b ON a.nip = b.nip LEFT JOIN simpeg_jabatan_akhir c ON a.nip = c.nip LEFT JOIN simpeg_pendidikan_akhir d ON a.nip = d.nip WHERE a.status_id IN (1,2) GROUP BY a.nip ORDER BY c.eselon ASC, c.tmt ASC, b.gol DESC, b.tmt ASC, d.ktpu DESC, d.tanggal ASC');
 		if($query->num_rows() > 0)
 		{
 			return $query->result();

@@ -16,6 +16,16 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-md-12">
+						<div class="form-group <?php echo form_error('nip') ? 'has-error' : null; ?>">
+							<?php
+							echo form_label('NIP','nip');
+							$data = array('class'=>'form-control','name'=>'nip','id'=>'nip','type'=>'text','value'=>set_value('nip', $record->nip));
+							echo form_input($data);
+							echo form_error('nip') ? form_error('nip', '<p class="help-block">','</p>') : '';
+							?>
+						</div>
+					</div>
+					<div class="col-md-12">
 						<div class="form-group <?php echo form_error('username') ? 'has-error' : null; ?>">
 							<?php
 							echo form_label('Username','username');

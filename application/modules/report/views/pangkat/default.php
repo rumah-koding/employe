@@ -85,7 +85,6 @@
 <script src="<?= base_url('asset/plugins/tableexport/dist/js/tableexport.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/pace/pace.min.js'); ?>"></script>
 <script type="text/javascript">
-<script type="text/javascript">
 $(function () {
 e = $("#tableID").tableExport({
         bootstrap: true,
@@ -94,5 +93,6 @@ e = $("#tableID").tableExport({
         fileName: "DAFTAR NOMINATIF BERDASARKAN PANGKAT-<?php echo date('dmy'); ?>",
     });
 });
+</script>
 </body>
 </html>

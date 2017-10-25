@@ -68,13 +68,14 @@ class User extends CI_Controller {
             $no++;
             $col = array();
             $col[] = '<input type="checkbox" class="data-check" value="'.$row->id.'">';
-            $col[] = $row->fullname;
+			$col[] = $row->nip ? $row->nip : '-';
+			$col[] = $row->fullname;
 			$col[] = $row->username;
 			$col[] = $row->email;
 			$col[] = $row->unker;
 			$col[] = $row->satker;
 			$col[] = level($row->level);
-			$col[] = $row->active;
+			$col[] = $row->active ? '<a class="btn btn-xs btn-flat btn-success"><i class="fa fa-check-circle-o"></i></a>' : '<a class="btn btn-xs btn-flat btn-danger"><i class="fa fa-minus"></i></a>';
             
             //add html for action
             $col[] = '<a class="btn btn-xs btn-flat btn-info" onclick="edit_data();" href="'.site_url('setting/password/updated/'.$row->id).'" data-toggle="tooltip" title="Ganti Password"><i class="fa fa-key"></i></a> <a class="btn btn-xs btn-flat btn-warning" onclick="edit_data();" href="'.site_url('setting/user/updated/'.$row->id).'" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
@@ -96,7 +97,8 @@ class User extends CI_Controller {
 	public function ajax_save()
     {
         $data = array(
-                'username' => $this->input->post('username'),
+				'nip' => $this->input->post('nip'),
+				'username' => $this->input->post('username'),
 				'fullname' => $this->input->post('fullname'),
 				'email' => $this->input->post('email'),
 				'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
@@ -116,7 +118,8 @@ class User extends CI_Controller {
     public function ajax_update($id)
     {
         $data = array(
-                'username' => $this->input->post('username'),
+				'nip' => $this->input->post('nip'),
+				'username' => $this->input->post('username'),
 				'fullname' => $this->input->post('fullname'),
 				'email' => $this->input->post('email'),
 				'telpon' => $this->input->post('telpon'),
@@ -154,11 +157,14 @@ class User extends CI_Controller {
         $data = array('success' => false, 'messages' => array());
         
 		if(!isset($id)){
+			$this->form_validation->set_rules("nip", "NIP", "trim|required|is_unique[users.nip]|max_length[18]");
 			$this->form_validation->set_rules("username", "Username", "trim|required|is_unique[users.username]");
 			$this->form_validation->set_rules("password", "Password", "trim|required|min_length[6]|max_length[18]");
 			$this->form_validation->set_rules("repassword", "Ulangi Password", "trim|required|matches[password]");
 		}else{
-			$this->form_validation->set_rules("username", "Username", "trim|required");
+			$this->form_validation->set_rules("nip", "NIP", "trim|required|callback_nip");
+			$this->form_validation->set_rules("username", "Username", "trim|required|callback_username");
+			$this->form_validation->set_rules("email", "Email", "trim|required|callback_email");
 		}
         
 		$this->form_validation->set_rules("fullname", "Nama Lengkap", "trim|required");
@@ -180,7 +186,43 @@ class User extends CI_Controller {
         }
         echo json_encode($data);
         return $this->form_validation->run();
-    }
+	}
+	
+	public function nip($str=null)
+	{
+		$id = $this->uri->segment(4);
+		$query = $this->db->get_where('users', array('nip'=>$str, 'id !='=>$id));
+		if($query->num_rows() > 0){
+			$this->form_validation->set_message('nip', '{field} sudah tersedia atau telah digunakan orang lain.');
+			return FALSE;
+		}else{
+		 	return TRUE;
+		}
+	}
+
+	public function username($str=null)
+	{
+		$id = $this->uri->segment(4);
+		$query = $this->db->get_where('users', array('username'=>$str, 'id !='=>$id));
+		if($query->num_rows() > 0){
+			$this->form_validation->set_message('username', '{field} sudah tersedia atau telah digunakan orang lain.');
+			return FALSE;
+		}else{
+		 	return TRUE;
+		}
+	}
+
+	public function email($str=null)
+	{
+		$id = $this->uri->segment(4);
+		$query = $this->db->get_where('users', array('email'=>$str, 'id !='=>$id));
+		if($query->num_rows() > 0){
+			$this->form_validation->set_message('email', '{field} sudah tersedia atau telah digunakan orang lain.');
+			return FALSE;
+		}else{
+		 	return TRUE;
+		}
+	}
 	
 	public function ajax_csfr()
     {

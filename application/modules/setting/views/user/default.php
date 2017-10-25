@@ -21,6 +21,7 @@
 							<thead>
 								<tr>
 									<th width="5px"><input type="checkbox" id="check-all"></th>
+									<th>NIP</th>
 									<th>Nama Lengkap</th>
 									<th>Username</th>
 									<th>Email</th>
@@ -28,7 +29,7 @@
 									<th>Satuan Kerja</th>
 									<th>Level</th>
 									<th>Active</th>
-									<th width="60px"></th>
+									<th width="80px"></th>
 								</tr>
 							</thead>
 							<tbody>

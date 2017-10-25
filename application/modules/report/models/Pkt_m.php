@@ -108,7 +108,7 @@ class Pkt_m extends MY_Model
 	public function get_record($id=null)
 	{
 		//$this->db->save_queries = TRUE;
-		$query = $this->db->query("SELECT a.kode, b.nip, b.tglahir, c.gol, c.tmt as tmtgol, d.eselon, d.tmt as tmtjab, d.satker_id FROM simpeg_view_satker a LEFT JOIN simpeg_jabatan_akhir d ON a.kode = d.satker_id LEFT JOIN simpeg_identitas b ON b.nip = d.nip LEFT JOIN simpeg_pangkat_akhir c ON c.nip = d.nip LEFT JOIN simpeg_pendidikan_akhir e ON e.nip = d.nip WHERE b.status_id IN (1,2) AND a.path LIKE '%{$id}%' ORDER BY c.gol DESC, c.tmt ASC, d.eselon ASC, d.tmt ASC, e.ktpu DESC, e.tanggal ASC");
+		$query = $this->db->query("SELECT a.kode, b.nip, b.tglahir, c.gol, c.tmt as tmtgol, d.eselon, d.tmt as tmtjab, d.satker_id FROM simpeg_view_satker a LEFT JOIN simpeg_jabatan_akhir d ON a.kode = d.satker_id LEFT JOIN simpeg_identitas b ON b.nip = d.nip LEFT JOIN simpeg_pangkat_akhir c ON c.nip = d.nip LEFT JOIN simpeg_pendidikan_akhir e ON e.nip = d.nip WHERE b.status_id IN (1,2) AND a.path LIKE '%{$id}%' GROUP BY d.nip ORDER BY c.gol DESC, c.tmt ASC, d.eselon ASC, d.tmt ASC, e.ktpu DESC, e.tanggal ASC");
 		if($query->num_rows() > 0)
 		{
 			return $query->result();
