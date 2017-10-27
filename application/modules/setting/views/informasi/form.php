@@ -31,7 +31,7 @@
 							echo form_label('Informasi','informasi');
 							?>
 							<textarea class='form-control' name='informasi' id='informasi'><?= set_value('informasi', $record->informasi); ?></textarea>
-							<?
+							<?php
 							echo form_error('informasi') ? form_error('informasi', '<p class="help-block">','</p>') : '';
 							?>
 						</div>

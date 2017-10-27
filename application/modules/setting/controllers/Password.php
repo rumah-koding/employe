@@ -15,7 +15,6 @@ class Password extends CI_Controller {
 		parent::__construct();
 		$this->load->model('password_m', 'data');
 		signin();
-		group(array('1','2'));
 	}
 	
 	//halaman index
@@ -41,10 +40,13 @@ class Password extends CI_Controller {
 	
 	public function updated($id)
 	{
-		//if($this->session->userdata('userID') != $id){
-		//	redirect('setting/user');	
-		//}
-		
+		if($this->session->userdata('level') != 1 ){
+			if($this->session->userdata('userID') != $id){
+				redirect('setting/user');
+			}
+		}
+		//group(array('1'));
+
 		$data['head'] 		= 'Pengaturan Password Pengguna';
 		$data['record'] 	= $this->data->get_id($id);
 		$data['content'] 	= $this->folder.'form';

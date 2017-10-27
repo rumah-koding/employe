@@ -39,8 +39,6 @@ class Informasi extends CI_Controller {
 		$data['content'] 	= $this->folder.'form';
 		$data['style'] 		= $this->folder.'style';
 		$data['js'] 		= $this->folder.'js';
-		$data['unker'] 		= $this->data->get_unker();
-		$data['group'] 		= $this->data->get_group();
 		
 		$this->load->view('template/default', $data);
 	}
@@ -52,8 +50,6 @@ class Informasi extends CI_Controller {
 		$data['content'] 	= $this->folder.'form';
 		$data['style'] 		= $this->folder.'style';
 		$data['js'] 		= $this->folder.'js';
-		$data['unker'] 		= $this->data->get_unker();
-		$data['group'] 		= $this->data->get_group();
 		
 		$this->load->view('template/default', $data);
 	}
@@ -95,7 +91,7 @@ class Informasi extends CI_Controller {
         $data = array(
                 'judul' => $this->input->post('judul'),
 				'informasi' => $this->input->post('informasi'),
-				'tanggal' => $this->input->post('tanggal'),
+				'tanggal' => yyyymmdd($this->input->post('tanggal')),
             );
         
         if($this->validation()){
@@ -109,7 +105,7 @@ class Informasi extends CI_Controller {
         $data = array(
                 'judul' => $this->input->post('judul'),
 				'informasi' => $this->input->post('informasi'),
-				'tanggal' => $this->input->post('tanggal'),
+				'tanggal' => yyyymmdd($this->input->post('tanggal')),
             );
 		
         if($this->validation($id)){

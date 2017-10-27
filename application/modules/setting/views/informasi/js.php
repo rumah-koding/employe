@@ -5,8 +5,7 @@ $(function () {
 	$('#informasi').wysihtml5();
 	$('#tanggal').datepicker({
 		format:'dd-mm-yyyy'
-	});
-	
-	$('#tangal').inputmask('dd-mm-yyyy');
+ 	});
+	$('#tanggal').inputmask('dd-mm-yyyy');
 });
 </script>

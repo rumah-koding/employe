@@ -10,6 +10,11 @@ class Auth_m extends MY_Model
 		return $this->db->where('email', $email)->where('active',1)->where('deleted_at',null)->get($this->table)->row('password');
 	}
 	
+	public function get_nip($email)
+	{
+		return $this->db->where('email', $email)->where('active',1)->where('deleted_at',null)->get($this->table)->row('nip');
+	}
+
 	public function get_userID($email)
 	{
 		return $this->db->where('email', $email)->where('active',1)->where('deleted_at',null)->get($this->table)->row('id');

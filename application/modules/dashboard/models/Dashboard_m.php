@@ -82,6 +82,7 @@ class Dashboard_m extends MY_Model
 
     public function get_informasi()
     {
+        $this->db->order_by('tanggal','DESC');
         $query = $this->db->get('informasi');
         if($query->num_rows() > 0){
             return $query->result();

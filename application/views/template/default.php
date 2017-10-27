@@ -115,6 +115,7 @@
                 <li class="user-header">
                   <img src="<?= base_url('asset/dist/img/avatar5.png'); ?>" class="img-circle" alt="User Image">
 								  <p>
+                    
                     <?= $this->session->userdata('fullname'); ?>
                     <small>Versi 3.0 2017</small>
                   </p>
