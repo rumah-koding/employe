@@ -45,12 +45,14 @@ class Auth extends CI_Controller {
 				
 				$user_ID = $this->_get_userID($email_post);
 				$username = $this->_get_username($email_post);
+				$fullname = $this->_get_fullname($email_post);
 				$ip_address = $this->input->ip_address();
 				$level = $this->_get_level($email_post);
 				
 				$create_session = array(
 					'userID'=> $user_ID,
 					'username' => $username,
+					'fullname' => $fullname,
 					'ip_address'=> $ip_address,
 					'signin' => TRUE,
 					'level' => $level
@@ -83,6 +85,11 @@ class Auth extends CI_Controller {
 	private function _get_username($email_post){
 		$username = $this->data->get_username($email_post);
 		return $username;
+	}
+
+	private function _get_fullname($email_post){
+		$fullname = $this->data->get_fullname($email_post);
+		return $fullname;
 	}
 	
 	private function _get_level($email_post){

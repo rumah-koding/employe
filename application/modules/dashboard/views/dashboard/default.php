@@ -23,10 +23,79 @@
 			<!-- box-body -->
 			<div class="box-body">
 				<div class="row">
+					<div class="col-lg-4 col-xs-12">
+						<div class="small-box bg-aqua">
+							<div class="inner">
+							<h3><?= $people ? number_format(count($people)) : 0; ?></h3>
+							<p>Pegawai Aktif</p>
+							</div>
+							<div class="icon">
+							<i class="ion ion-ios-people"></i>
+							</div>
+							<a href="#" class="small-box-footer">&nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-xs-12">
+						<div class="small-box bg-yellow">
+							<div class="inner">
+							<h3><?= $male ? number_format(count($male)) : 0; ?></h3>
+							<p>Laki-Laki</p>
+							</div>
+							<div class="icon">
+							<i class="ion ion-male"></i>
+							</div>
+							<a href="#" class="small-box-footer">&nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-xs-12">
+						<div class="small-box bg-red">
+							<div class="inner">
+							<h3><?= $female ? number_format(count($female)) : 0; ?></h3>
+							<p>Perempuan</p>
+							</div>
+							<div class="icon">
+							<i class="ion ion-female"></i>
+							</div>
+							<a href="#" class="small-box-footer">&nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
 					<div class="col-md-12">
-						<p>Selamat datang pada simpeg versi Beta 3.0</p>
-						<p>Ini merupakan versi pengembangan dimana pada semester 4 terdapat modul pengembangan laporan kinerja per skpd, pembaharuan keamanan login dan permission, desain sistem untuk di pergunakan seluruh ASN di lingkungan provinsi kalimantan selatan, desain API untuk keperluan pengembangan aplikasi pihak instansi lain di luar Badan Kepegawaian Daerah Provinsi Kalimantan Selatan yang menggunakan data kepegawaian SIMPEG.</p>
-						<p>IT Data dan Informasi</p>
+					<?php if($informasi): ?>
+					<ul class="timeline">
+						<?php foreach($informasi as $row): ?>
+						<li class="time-label">
+							<span class="bg-red">
+								<?= ddmmyyyy($row->tanggal); ?>
+							</span>
+						</li>
+						<!-- /.timeline-label -->
+						<!-- timeline item -->
+						<li>
+							<!-- timeline icon -->
+							<i class="fa fa-envelope bg-blue"></i>
+							<div class="timeline-item bg-gray">
+								<span class="time"><i class="fa fa-clock-o"></i> &nbsp</span>
+
+								<h3 class="timeline-header"><?= $row->judul; ?></h3>
+
+								<div class="timeline-body">
+									<?= $row->informasi; ?>
+								</div>
+
+								<!-- <div class="timeline-footer">
+									<a class="btn btn-primary btn-xs"></a>
+								</div> -->
+							</div>
+						</li>
+						<?php endforeach; ?>
+						<li>
+						<i class="fa fa-clock-o bg-gray"></i>
+						</li>
+						<!-- END timeline item -->
+					</ul>
+					<?php endif; ?>
 					</div>
 				</div>
 			</div>

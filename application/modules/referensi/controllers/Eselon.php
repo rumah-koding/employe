@@ -15,7 +15,7 @@ class Eselon extends CI_Controller {
 		parent::__construct();
 		$this->load->model('eselon_m', 'data');
 		signin();
-		admin();
+		group(array('1'));
 	}
 	
 	//halaman index

@@ -18,7 +18,7 @@ class Pegawai extends CI_Controller {
 		$this->load->helper('my_helper');
 		$this->session->unset_userdata('nip');
 		signin();
-		group(array('1','2','4'));
+		group(array('1','2'));
 		
 	}
 	

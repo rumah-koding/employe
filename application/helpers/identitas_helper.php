@@ -262,7 +262,7 @@ if (! function_exists('ktpu'))
         if($query->num_rows() > 0){
 			return $query->row()->ktpu;
 		}else{
-            return '-';
+            return FALSE;
         }
 	}
 }

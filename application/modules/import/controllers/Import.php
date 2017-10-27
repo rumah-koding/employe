@@ -17,6 +17,8 @@ class Import extends CI_Controller {
         //$this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
         require_once APPPATH."libraries/PHPExcel.php";
         require_once APPPATH."libraries/PHPExcel/IOFactory.php";
+        signin();
+		group(array('1'));
     }
 
     //Menampilkan data kontak

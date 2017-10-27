@@ -15,7 +15,7 @@ class Pekerjaan extends CI_Controller {
 		parent::__construct();
 		$this->load->model('pekerjaan_m', 'data');
 		signin();
-		admin();
+		group(array('1'));
 	}
 	
 	//halaman index

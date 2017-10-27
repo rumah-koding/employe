@@ -17,7 +17,7 @@ class Jabatan extends CI_Controller {
 		$this->load->helper('identitas_helper');
 		$this->load->helper('my_helper');
 		signin();
-		group(array('1','2','4','5'));
+		group(array('1','2'));
 	}
 	
 	//halaman index

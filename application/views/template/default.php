@@ -109,13 +109,13 @@
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="<?= base_url('asset/dist/img/avatar5.png'); ?>" class="user-image" alt="User Image">
-                <span class="hidden-xs"><?= $this->session->userdata('username'); ?></span>
+                <span class="hidden-xs">&nbsp;</span>
               </a>
               <ul class="dropdown-menu">
                 <li class="user-header">
                   <img src="<?= base_url('asset/dist/img/avatar5.png'); ?>" class="img-circle" alt="User Image">
 								  <p>
-                    Login Simpeg
+                    <?= $this->session->userdata('fullname'); ?>
                     <small>Versi 3.0 2017</small>
                   </p>
                 </li>

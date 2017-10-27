@@ -79,6 +79,54 @@ class Dashboard_m extends MY_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function get_informasi()
+    {
+        $query = $this->db->get('informasi');
+        if($query->num_rows() > 0){
+            return $query->result();
+        }else{
+            return FALSE;
+        }
+    }
+
+    public function get_people()
+    {
+        $this->db->where('deleted_at', null);
+        $this->db->where_in('status_id', array(1,2));
+        $query = $this->db->get('identitas');
+        if($query->num_rows() > 0){
+            return $query->result();
+        }else{
+            return FALSE;
+        }
+    }
+
+    public function get_male()
+    {
+        $this->db->where('sex', 1);
+        $this->db->where('deleted_at', null);
+        $this->db->where_in('status_id', array(1,2));
+        $query = $this->db->get('identitas');
+        if($query->num_rows() > 0){
+            return $query->result();
+        }else{
+            return FALSE;
+        }
+    }
+
+    public function get_female()
+    {
+        $this->db->where('sex', 2);
+        $this->db->where('deleted_at', null);
+        $this->db->where_in('status_id', array(1,2));
+        $query = $this->db->get('identitas');
+        if($query->num_rows() > 0){
+            return $query->result();
+        }else{
+            return FALSE;
+        }
+    }
 	
 
 }

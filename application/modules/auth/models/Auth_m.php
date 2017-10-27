@@ -19,6 +19,11 @@ class Auth_m extends MY_Model
 	{
 		return $this->db->where('email', $email)->where('active',1)->where('deleted_at',null)->get($this->table)->row('username');
 	}
+
+	public function get_fullname($email)
+	{
+		return $this->db->where('email', $email)->where('active',1)->where('deleted_at',null)->get($this->table)->row('fullname');
+	}
 	
 	public function get_level($email)
 	{

@@ -15,7 +15,7 @@ class Jabatan extends CI_Controller {
 		parent::__construct();
 		$this->load->model('jabatan_m', 'data');
 		signin();
-		admin();
+		group(array('1'));
 	}
 	
 	//halaman index

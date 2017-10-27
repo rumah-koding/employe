@@ -15,7 +15,7 @@ class Jenis extends CI_Controller {
 		parent::__construct();
 		$this->load->model('jenis_m', 'data');
 		signin();
-		admin();
+		group(array('1'));
 	}
 	
 	//halaman index

@@ -15,7 +15,7 @@ class Password extends CI_Controller {
 		parent::__construct();
 		$this->load->model('password_m', 'data');
 		signin();
-		//group(array('1'));
+		group(array('1','2'));
 	}
 	
 	//halaman index

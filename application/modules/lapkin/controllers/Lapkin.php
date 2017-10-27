@@ -14,6 +14,7 @@ class Lapkin extends CI_Controller {
 		parent::__construct();
 		$this->load->model('lapkin_m', 'data');
 		signin();
+		group(array('1','2','4'));
 	}
 	
 	public function index()

@@ -15,7 +15,7 @@ class Pangkat extends CI_Controller {
 		parent::__construct();
 		$this->load->model('pangkat_m', 'data');
 		signin();
-		admin();
+		group(array('1'));
 	}
 	
 	//halaman index

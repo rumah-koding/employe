@@ -12,6 +12,7 @@ class Dashboard extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->helper('my_helper');
 		$this->load->model('dashboard_m', 'data');
 		signin();
 	}
@@ -23,6 +24,10 @@ class Dashboard extends CI_Controller {
 		$data['content'] 	= $this->folder.'default';
 		$data['style'] 		= $this->folder.'style';
 		$data['js'] 		= $this->folder.'js';
+		$data['informasi']	= $this->data->get_informasi();
+		$data['male']		= $this->data->get_male();
+		$data['female']		= $this->data->get_female();
+		$data['people']		= $this->data->get_people();
 		
 		$this->load->view('template/default', $data);
 	}
