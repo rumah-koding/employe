@@ -91,6 +91,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gears"></i> Pengaturan <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="<?= site_url('setting/user'); ?>"><i class="fa fa-users"></i> Pengguna</a></li>
+                <li><a href="<?= site_url('setting/sopd'); ?>"><i class="fa fa-users"></i> Registrasi SOPD</a></li>
 								<li><a href="<?= site_url('setting/folder'); ?>"><i class="fa fa-folder"></i> Manajeman File</a></li>
 								<li><a href="<?= site_url('setting/informasi'); ?>"><i class="fa fa-file-text-o"></i> Manajemen Informasi</a></li>
 								
