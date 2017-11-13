@@ -35,7 +35,7 @@ class Folder extends CI_Controller {
 			)
 		  );
 		$this->session->set_userdata($array);
-		var_dump($_SESSION);
+		//var_dump($_SESSION);
 		$this->load->view('template/default', $data);
 	}
 	
