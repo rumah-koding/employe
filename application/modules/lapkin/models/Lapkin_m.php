@@ -3,15 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Lapkin_m extends MY_Model
 {
-	public $table = 'ref_agama'; // you MUST mention the table name
+	public $table = 'lapkin'; // you MUST mention the table name
 	public $primary_key = 'id'; // you MUST mention the primary key
 	public $fillable = array(); // If you want, you can set an array with the fields that can be filled by insert/update
 	public $protected = array(); // ...Or you can set an array with the fields that cannot be filled by insert/update
 	
 	//ajax datatable
-    public $column_order = array('id','agama',null); //set kolom field database pada datatable secara berurutan
-    public $column_search = array('agama'); //set kolom field database pada datatable untuk pencarian
-    public $order = array('agama' => 'asc'); //order baku 
+    public $column_order = array('nip','nama','skp'); //set kolom field database pada datatable secara berurutan
+    public $column_search = array('nip','nama','jabatan','skp','tahun'); //set kolom field database pada datatable untuk pencarian
+    public $order = array('id' => 'asc'); //order baku 
 	
 	public function __construct()
 	{

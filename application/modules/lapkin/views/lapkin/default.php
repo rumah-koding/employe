@@ -30,6 +30,34 @@
 						<p>IT Data dan Informasi</p>
 					</div>
 				</div>
+				<?php if($record): ?>
+				<div class="row">
+					<div class="col-md-12">
+						<span id="key" style="display: none;"><?= $this->security->get_csrf_hash(); ?></span>
+						<table id="tableID" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>Nama Lengkap</th>
+									<th>NIP</th>
+									<th>Jabatan</th>
+									<th>Unit Kerja</th>
+									<th>Satuan Kerja</th>
+									<th>SKP</th>
+									<th>Pelayanan</th>
+									<th>Integritas</th>
+									<th>Komitmen</th>
+									<th>Disiplin</th>
+									<th>Kerjasama</th>
+									<th>Kepemimpinan</th>
+									<th>Tahun</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<?php endif; ?>
 			</div>
 			<!-- ./box-body -->
 			

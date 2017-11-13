@@ -49,6 +49,8 @@ class Auth extends CI_Controller {
 				$nip = $this->_get_nip($email_post);
 				$ip_address = $this->input->ip_address();
 				$level = $this->_get_level($email_post);
+				$unker = $this->_get_unker($email_post);
+				$satker = $this->_get_satker($email_post);
 				
 				$create_session = array(
 					'nip'=> $nip,
@@ -57,7 +59,9 @@ class Auth extends CI_Controller {
 					'fullname' => $fullname,
 					'ip_address'=> $ip_address,
 					'signin' => TRUE,
-					'level' => $level
+					'level' => $level,
+					'unker' => $unker,
+					'satker' => $satker
 				);
 				
 				$this->session->set_userdata($create_session);
@@ -102,6 +106,16 @@ class Auth extends CI_Controller {
 	private function _get_level($email_post){
 		$level = $this->data->get_level($email_post);
 		return $level;
+	}
+
+	private function _get_unker($email_post){
+		$unker = $this->data->get_unker($email_post);
+		return $unker;
+	}
+
+	private function _get_satker($email_post){
+		$satker = $this->data->get_satker($email_post);
+		return $satker;
 	}
 	
 	private function _verify_password_hash($pass_post, $hash)
