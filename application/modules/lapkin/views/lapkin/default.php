@@ -25,7 +25,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<p>Selamat Datang Di Halaman E-Lapkin</p>
-						<p>E-Lapkin merupakan bagian modul dari simpeg, yang diperuntukan laporan kinerja pegawai yang di akses oleh setiap SOPD yang ada di lingkungan provinsi Kalimantan Selatan. Untuk menggunakannya petugas di SOPD dapat melakukan upload terhadap file excel e-lapkin yang formatnya sudah baku seperti dokumen berikut ini <a href="#">download</a></p>
+						<p>E-Lapkin merupakan bagian modul dari simpeg, yang diperuntukan laporan kinerja pegawai yang di akses oleh setiap SOPD yang ada di lingkungan provinsi Kalimantan Selatan. Untuk menggunakannya petugas di SOPD dapat melakukan upload terhadap file excel e-lapkin yang formatnya sudah baku seperti dokumen berikut ini <a href="<?= base_url('document/e-lapkin/e-lapkin.xlsx'); ?>" download>download</a></p>
 						<p>Untuk upload file excel pada halaman ini <a href="<?= site_url('lapkin/created'); ?>" class="btn btn-xs btn-primary"><i class="fa fa-upload"></i> Upload Dokumen</a></p>
 						<p>IT Data dan Informasi</p>
 					</div>
@@ -43,12 +43,12 @@
 									<th>Unit Kerja</th>
 									<th>Satuan Kerja</th>
 									<th>SKP</th>
-									<th>Pelayanan</th>
-									<th>Integritas</th>
-									<th>Komitmen</th>
-									<th>Disiplin</th>
-									<th>Kerjasama</th>
-									<th>Kepemimpinan</th>
+									<th>P</th>
+									<th>I</th>
+									<th>K</th>
+									<th>D</th>
+									<th>K</th>
+									<th>K</th>
 									<th>Tahun</th>
 								</tr>
 							</thead>

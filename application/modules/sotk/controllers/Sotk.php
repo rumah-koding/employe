@@ -12,7 +12,6 @@ class Sotk extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->library('session');
 		$this->load->model('sotk_m', 'data');
 		signin();
 	}
@@ -39,11 +38,10 @@ class Sotk extends CI_Controller {
             $col = array();
             $col[] = '<input type="checkbox" class="data-check" value="'.$row->id.'">';
             $col[] = $row->kode;
-			$col[] = $row->unker;
-			$col[] = $row->instan;
-            
+			$col[] = $row->satker;
+			$col[] = '';
             //add html for action
-            $col[] = '<a class="btn btn-xs btn-flat btn-info" onclick="" href="#" data-toggle="tooltip" title="Lihat"><i class="fa fa-sitemap"></i></a>
+            $col[] = '<a class="btn btn-xs btn-flat btn-info" onclick="" href="'.site_url('sotk/tree/'.$row->kode).'" data-toggle="tooltip" title="Lihat"><i class="fa fa-sitemap"></i></a>
                   ';
  
             $data[] = $col;
@@ -62,15 +60,16 @@ class Sotk extends CI_Controller {
 	public function tree($id)
 	{
 		
-		$nunker = $this->data->get_nunker($id);
-		
-		$data['head'] 		= $nunker ? 'SOTK - '.$nunker : 'SOTK';
-		$data['record'] 	= $this->data->get_all();
-		$data['satker'] 	= $this->data->get_nested();
+		//$satker = $this->data->get_satker($id);
+		// $data['head'] 		= $satker ? 'SOTK - '.$satker : 'SOTK';
+		// $data['record'] 	= $this->data->get_all();
+		// $data['satker'] 	= $this->data->get_nested($id);
 		$data['content'] 	= $this->folder.'tree';
 		$data['style'] 		= $this->folder.'style';
 		$data['js'] 		= $this->folder.'js';
-		
+		//$data['struktur'] 	= $this->data->get_record_by($id);
+		$data['struktur']	= $this->data->get_struktur($id);
+		//var_dump($data['struktur']);
 		$this->load->view('template/default', $data);
 	}
 }

@@ -17,7 +17,6 @@
 						<table id="tableID" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 							<thead>
 								<tr>
-									<th width="5px"><input type="checkbox" id="check-all"></th>
 									<th>NIP</th>
 									<th>Nama Lengkap</th>
 									<th>Username</th>
@@ -26,8 +25,8 @@
 									<th>Satuan Kerja</th>
 									<th>Level</th>
 									<th>Verify</th>
-									<th>Active</th>
-									<th>Dokumen</th>
+									<th>Act</th>
+									<th>Doc</th>
 								</tr>
 							</thead>
 							<tbody>

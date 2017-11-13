@@ -22,8 +22,8 @@
 								<tr>
 									<th width="5px"><input type="checkbox" id="check-all"></th>
 									<th>Kode</th>
-									<th>Unit Kerja</th>
-									<th>Instansi</th>
+									<th>Satuan Kerja</th>
+									<th>Informasi</th>
 									<th width="30px">Aksi</th>
 								</tr>
 							</thead>

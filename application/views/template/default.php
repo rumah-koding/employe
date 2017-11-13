@@ -17,12 +17,16 @@
   <link rel="stylesheet" href="<?= base_url('asset/dist/css/skins/_all-skins.min.css'); ?>">
 	<script src="<?= base_url('asset/plugins/pace/pace.min.js'); ?>"></script>
   <link rel="stylesheet" href="<?= base_url('asset/plugins/pace/themes/blue/pace-theme-loading-bar.css'); ?>" />
+  <!-- primitive diagram -->
+	<link rel="stylesheet" href="<?php echo base_url('asset/primitives/js/jquery/ui-lightness/jquery-ui-1.10.2.custom.min.css'); ?>" />
+  <link href="<?php echo base_url('asset/primitives/css/primitives.latest.css'); ?>" media="screen" rel="stylesheet" type="text/css" />
+
   <?= isset($style) ? $this->load->view($style) : ''; ?>
 	<!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-	<style>body{font-size: 12px;}.nav-tabs-custom>.nav-tabs>li.active {border-top-color: #00a65a !important;}@media(min-width: 1024px){.main-header{top:0;left: 0;position: fixed;right: 0;z-index: 999;}.content-wrapper{padding-top:50px; padding-bottom:50px;}}.print{font-size: 9px;}.main-footer{bottom:0;left: 0;position: fixed;right: 0;z-index: 999;}.has-error .select2-selection {border: 1px solid #a94442;border-radius: 0px;}</style>
+	<style>body{font-size: 1.13em;}.nav-tabs-custom>.nav-tabs>li.active {border-top-color: #00a65a !important;}@media(min-width: 1024px){.main-header{top:0;left: 0;position: fixed;right: 0;z-index: 999;}.content-wrapper{padding-top:50px; padding-bottom:50px;}}.print{font-size: 9px;}.main-footer{bottom:0;left: 0;position: fixed;right: 0;z-index: 999;}.has-error .select2-selection {border: 1px solid #a94442;border-radius: 0px;}#tableID{font-size:0.9em;}</style>
 	
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
@@ -187,7 +191,12 @@
 <script src="<?= base_url('asset/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>"></script>
 <script src="<?= base_url('asset/plugins/select2/select2.full.min.js'); ?>"></script>
 <script src="<?= base_url('asset/app.js'); ?>"></script>
+<!-- PRIMITIVE DIAGRAM -->
+<script src="<?php echo base_url('asset/primitives/js/jquery/jquery-ui-1.10.2.custom.min.js'); ?>"></script>
+<script src="<?php echo base_url('asset/primitives/js/primitives.min.js'); ?>"></script>
+<script src="<?php echo base_url('asset/primitives/js/pdfkit/pdfkit.js'); ?>"></script>
+<script src="<?php echo base_url('asset/primitives/js/pdfkit/blob-stream.js'); ?>"></script>
+<script src="<?php echo base_url('asset/primitives/FileSaver.js/FileSaver.min.js'); ?>"></script>
 <?= isset($js) ? $this->load->view($js) : ''; ?>
-
 </body>
 </html>

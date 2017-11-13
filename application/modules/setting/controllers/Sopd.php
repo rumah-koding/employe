@@ -41,8 +41,7 @@ class Sopd extends CI_Controller {
         foreach ($record as $row) {
             $no++;
             $col = array();
-            $col[] = '<input type="checkbox" class="data-check" value="'.$row->id.'">';
-			$col[] = $row->nip ? $row->nip : '-';
+            $col[] = $row->nip ? $row->nip : '-';
 			$col[] = $row->fullname;
 			$col[] = $row->username;
 			$col[] = '<a href="mailto:'.$row->email.'">'.$row->email.'</a>';

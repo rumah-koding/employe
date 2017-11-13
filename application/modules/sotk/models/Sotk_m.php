@@ -3,14 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Sotk_m extends MY_Model
 {
-	public $table = 'ref_unker'; // you MUST mention the table name
+	public $table = 'ref_satker'; // you MUST mention the table name
 	public $primary_key = 'id'; // you MUST mention the primary key
 	public $fillable = array(); // If you want, you can set an array with the fields that can be filled by insert/update
 	public $protected = array(); // ...Or you can set an array with the fields that cannot be filled by insert/update
 	
 	//ajax datatable
-    public $column_order = array('id','kode','instan','unker',null); //set kolom field database pada datatable secara berurutan
-    public $column_search = array('b.kode','b.unker'); //set kolom field database pada datatable untuk pencarian
+    public $column_order = array('id','kode','satker',null); //set kolom field database pada datatable secara berurutan
+    public $column_search = array('kode','satker'); //set kolom field database pada datatable untuk pencarian
     public $order = array('kode' => 'asc'); //order baku 
 	
 	public function __construct()
@@ -23,11 +23,8 @@ class Sotk_m extends MY_Model
 	//urusan lawan datatable
     private function _get_datatables_query()
     {
-        $this->db->select('a.instansi as instan, b.*');
-		$this->db->from('ref_unker b');
-		$this->db->join('ref_instansi a','a.kode = b.instansi','LEFT');
-		
-		//$this->db->from($this->table);
+        
+		$this->db->from($this->table);
         $i = 0;
         foreach ($this->column_search as $item) // loop column 
         {
@@ -78,38 +75,96 @@ class Sotk_m extends MY_Model
     {
         $this->_get_datatables_query();
         if($_POST['length'] != -1)
-        $this->db->where('a.deleted_at', NULL);
+        $this->db->where('deleted_at', NULL);
         $this->db->limit($_POST['length'], $_POST['start']);
         $query = $this->db->get();
         return $query->result();
     }
 	
-	public function get_nunker($id=null)
+	public function get_satker($kode=null)
 	{
-		$query = $this->db->get_where('ref_unker',array('id'=>$id));
+		$query = $this->db->get_where('ref_satker',array('kode'=>$kode));
 		if($query->num_rows() > 0)
 		{
-			return $query->row('unker');
+			return $query->row('satker');
 		}else{
 			return FALSE;
 		}
 	}
-	
-	public function get_nested()
+    
+    public function get_level($kode=null){
+        $query = $this->db->get_where('view_satker',array('kode'=>$kode));
+		if($query->num_rows() > 0)
+		{
+			return $query->row('level');
+		}else{
+			return FALSE;
+		}
+    }
+    
+    public function get_record_by($id=null)
 	{
-		$this->db->where('unker_id','32');
-		$this->db->order_by('parent','asc');
+        $level = $this->get_level($id);
+        
+        if($level == 1){
+            $this->db->where('name_level1', $id);
+        }elseif($level == 2){
+            $this->db->where('name_level2', $id);
+        }elseif($level == 3){
+            $this->db->where('name_level3', $id);
+        }elseif($level == 4){
+            $this->db->where('name_level4', $id);
+        }elseif($level == 5){
+            $this->db->where('name_level5', $id);
+        }else{
+            $this->db->where('name_level6', $id);
+        }
+        $this->db->select('id, kode, parent_id, satker, level');
+        $this->db->order_by('parent_id','asc');
+		$query = $this->db->get('view_satker')->result_array();
+        $array = array();
+		foreach ($query as $row){
+			if(!$row['parent_id']){
+				$array[$row['id']] = $row;
+			}else{
+				$array[$row['parent_id']]['children'][] = $row;
+			}
+		}
+		return $array;
+        // if($query->num_rows() > 0)
+		// {
+		// 	return $query->result();
+		// }else{
+		// 	return FALSE;
+		// }
+	}
+	
+
+	public function get_nested($kode=null)
+	{
+        $this->db->where('kode',$kode);
+		$this->db->order_by('parent_id','asc');
 		$this->db->order_by('order_id','asc');
 		$satker = $this->db->get('ref_satker')->result_array();
 		
 		$array = array();
 		foreach ($satker as $row){
-			if(!$row['parent']){
+			if(!$row['parent_id']){
 				$array[$row['id']] = $row;
 			}else{
-				$array[$row['parent']]['children'][] = $row;
+				$array[$row['parent_id']]['children'][] = $row;
 			}
 		}
 		return $array;
-	}
+    }
+    
+    public function get_struktur($id=NULL)
+    {
+        $this->db->from('view_satker');
+        //$this->db->where('deleted_at', NULL);
+		$this->db->like('path', $id);
+        $query = $this->db->get();
+ 
+        return $query->result();
+    }
 }
