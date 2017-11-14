@@ -120,7 +120,7 @@
           <button type="submit" class="btn btn-success btn-block btn-flat"><i class="fa fa-file-text"></i> REGISTRASI</button>
         </div>
         <div class="col-xs-6">
-          <a href="<?= site_url('registrasi/sopd/reset_password'); ?>" class="btn btn-primary btn-block btn-flat"><i class="fa fa-unlock"></i> MINTA PASSWORD</a>
+          <a href="<?= site_url('registrasi/sopd/reset_password'); ?>" class="btn btn-danger btn-block btn-flat"><i class="fa fa-unlock"></i> MINTA PASSWORD</a>
         </div>
         <!-- /.col -->
       </div>

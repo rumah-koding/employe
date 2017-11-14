@@ -59,10 +59,10 @@
         </div> -->
         <!-- /.col -->
         <div class="col-xs-6">
-          <button type="submit" class="btn btn-success btn-block btn-flat"><i class="fa fa-file-unlock"></i> MINTA PASSWORD</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat"><i class="fa fa-send"></i> KIRIM PASSWORD</button>
         </div>
 		<div class="col-xs-6">
-          <a href="<?= site_url('login'); ?>" class="btn btn-primary btn-block btn-flat"><i class="fa fa-sign-in"></i> LOGIN</a>
+          <a href="<?= site_url('login'); ?>" class="btn btn-success btn-block btn-flat"><i class="fa fa-sign-in"></i> LOGIN</a>
         </div>
         <!-- /.col -->
       </div>

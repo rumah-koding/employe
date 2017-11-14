@@ -59,9 +59,14 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat"><i class="fa fa-sign-in"></i> LOGIN</button>
+          <button type="submit" class="btn btn-success btn-block btn-flat"><i class="fa fa-sign-in"></i> LOGIN</button>
         </div>
         <!-- /.col -->
+      </div>
+      <div class="social-auth-links text-center">
+      <p></p>
+      <a href="<?= site_url('registrasi/sopd'); ?>" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-file-text"></i> Registrasi SIMPEG SOPD</a>
+      <a href="<?= site_url('login'); ?>" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-user"></i> Registrasi SIMPEG ASN</a>
       </div>
     <?= form_close(); ?>
     <a href="#"></a><br>

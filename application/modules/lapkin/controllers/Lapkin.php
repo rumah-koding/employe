@@ -16,7 +16,7 @@ class Lapkin extends CI_Controller {
 		require_once APPPATH."libraries/PHPExcel.php";
         require_once APPPATH."libraries/PHPExcel/IOFactory.php";
 		signin();
-		group(array('4'));
+		group(array('1','4'));
 	}
 	
 	public function index()
