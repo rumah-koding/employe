@@ -80,6 +80,7 @@
 								<li class="divider"></li>
 								<li><a href="<?= site_url('report/peta'); ?>"><i class="fa fa-file-text-o"></i> Laporan Pemetaan</a></li>
 								<li><a href="<?= site_url('report/analisa'); ?>"><i class="fa fa-file-text-o"></i> Laporan Analisa Jabatan</a></li>
+                <li><a href="<?= site_url('report/lapkin'); ?>"><i class="fa fa-file-text-o"></i> Laporan E-Lapkin</a></li>
                 <li class="divider"></li>
 								<li><a href="#"><i class="fa fa-file-text-o"></i> Daftar Jaga Pangkat</a></li>
 								<li><a href="<?= site_url('report/pensiun'); ?>"><i class="fa fa-file-text-o"></i> Daftar Jaga Pensiun</a></li>

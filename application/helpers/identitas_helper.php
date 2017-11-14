@@ -424,3 +424,20 @@ if (! function_exists('kawin'))
 		return $kode;
 	}
 }
+
+if (! function_exists('file_lapkin'))
+{
+	function file_lapkin($satker=null)
+	{
+		$CI =& get_instance();
+		$CI->db->select('satker_id, tahun, dokumen');
+		$CI->db->where('satker_id', $satker);
+		$CI->db->group_by(array('satker_id', 'tahun'));
+		$query = $CI->db->get('lapkin');
+        if($query->num_rows() > 0){
+			return $query->result();
+		}else{
+            return FALSE;
+        }
+	}
+}
