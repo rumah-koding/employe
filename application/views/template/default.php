@@ -91,7 +91,7 @@
 								<li><a href="#"><i class="fa fa-file-text-o"></i> Rekapitulasi Status</a></li>
               </ul>
             </li>
-						<li><a href="#"><i class="fa fa-ticket"></i> Tiket Layanan</a></li>
+						<li><a href="<?= site_url('tiket'); ?>"><i class="fa fa-ticket"></i> Tiket Layanan</a></li>
 						<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gears"></i> Pengaturan <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">

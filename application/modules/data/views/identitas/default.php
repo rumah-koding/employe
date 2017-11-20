@@ -95,18 +95,18 @@
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
 			  <!--<li class="pull-left header"><i class="fa fa-info"></i> TABEL</li>-->
-			  <li class="active"><a href="#data" data-toggle="tab">DATA</a></li>
-              <li><a href="#pangkat" data-toggle="tab"><i class="fa fa-tags"></i></a></li>
-              <li><a href="#jabatan" data-toggle="tab"><i class="fa fa-bank"></i></a></li>
-			  <li><a href="#pendidikan" data-toggle="tab"><i class="fa fa-graduation-cap"></i></a></li>
-			  <li><a href="#diklat" data-toggle="tab"><i class="fa fa-book"></i></a></li>
-			  <li><a href="#keluarga" data-toggle="tab"><i class="fa fa-group"></i></a></li>
-			  <li><a href="#jasa" data-toggle="tab"><i class="fa fa-certificate"></i></a></li>
-			  <li><a href="#hukuman" data-toggle="tab"><i class="fa fa-gavel"></i></a></li>
-			  <li><a href="#organisasi" data-toggle="tab"><i class="fa fa-flag"></i></a></li>
-              <li><a href="#kgb" data-toggle="tab"><i class="fa fa-money"></i></a></li>
-			  <li><a href="#cuti" data-toggle="tab"><i class="fa fa-coffee"></i></a></li>
-			  <li><a href="#skp" data-toggle="tab"><i class="fa fa-bar-chart"></i></a></li>
+								<li class="active"><a href="#data" data-toggle="tab">DATA</a></li>
+								<li><a href="#pangkat" data-toggle="tab"><i class="fa fa-tags"></i></a></li>
+								<li><a href="#jabatan" data-toggle="tab"><i class="fa fa-bank"></i></a></li>
+								<li><a href="#pendidikan" data-toggle="tab"><i class="fa fa-graduation-cap"></i></a></li>
+								<li><a href="#diklat" data-toggle="tab"><i class="fa fa-book"></i></a></li>
+								<li><a href="#keluarga" data-toggle="tab"><i class="fa fa-group"></i></a></li>
+								<li><a href="#jasa" data-toggle="tab"><i class="fa fa-certificate"></i></a></li>
+								<li><a href="#hukuman" data-toggle="tab"><i class="fa fa-gavel"></i></a></li>
+								<li><a href="#organisasi" data-toggle="tab"><i class="fa fa-flag"></i></a></li>
+								<li><a href="#kgb" data-toggle="tab"><i class="fa fa-money"></i></a></li>
+								<li><a href="#cuti" data-toggle="tab"><i class="fa fa-coffee"></i></a></li>
+								<li><a href="#skp" data-toggle="tab"><i class="fa fa-bar-chart"></i></a></li>
             </ul>
             <div class="tab-content">
               <div class="tab-pane active" id="data">
@@ -120,7 +120,8 @@
 						<dd><?= gol(cpns($nip)->gol); ?></dd>
 						<dd>
 						<a class="btn btn-xs btn-flat btn-danger pull-right" data-toggle="tooltip" data-url="cpns" title="Hapus" href="<?= site_url('data/cpns/trash/'.$nip.'/'.cpns($nip)->id); ?>"><i class="glyphicon glyphicon-trash"></i></a>
-						<a class="btn btn-xs btn-flat btn-info pull-right" data-toggle="tooltip" data-url="cpns" title="Upload"><i class="glyphicon glyphicon-upload"></i></a>
+						<a class="btn btn-xs btn-flat btn-info pull-right" data-toggle="modal" data-target="#view-modal" data-modul="cpns" data-id="<?= cpns($nip)->id; ?>" data-nip="<?= $nip; ?>" id="getUser"><i class="glyphicon glyphicon-upload"></i></a>
+						<a class="btn btn-xs btn-flat btn-primary pull-right" title="dokumen" href="<?= file_perorangan($nip, cpns($nip)->id, 'cpns') ? base_url('source/'.file_perorangan($nip, cpns($nip)->id, 'cpns')) : ''; ?>" ><i class="fa fa-file-text"></i></a>
 						</dd>
 						<br>
 						<?php endif; ?>
@@ -131,7 +132,8 @@
 						<dd><?= gol(pns($nip)->gol); ?></dd>
 						<dd>
 						<a class="btn btn-xs btn-flat btn-danger pull-right" data-toggle="tooltip" title="Hapus" href="<?= site_url('data/pns/trash/'.$nip.'/'.pns($nip)->id); ?>"><i class="glyphicon glyphicon-trash"></i></a>
-						<a class="btn btn-xs btn-flat btn-info pull-right" data-toggle="tooltip" title="Upload"><i class="glyphicon glyphicon-upload"></i></a>
+						<a class="btn btn-xs btn-flat btn-info pull-right" data-toggle="modal" data-target="#view-modal" data-modul="pns" data-id="<?= pns($nip)->id; ?>" data-nip="<?= $nip; ?>" id="getUser"><i class="glyphicon glyphicon-upload"></i></a>
+						<a class="btn btn-xs btn-flat btn-primary pull-right" title="dokumen" href="<?= file_perorangan($nip, pns($nip)->id, 'pns') ? base_url('source/'.file_perorangan($nip, pns($nip)->id, 'pns')) : ''; ?>"><i class="fa fa-file-text"></i></a>
 						</dd>
 						<?php endif; ?>
 						</dl>
@@ -326,4 +328,31 @@
           </div>
           <!-- nav-tabs-custom -->
 	</div>
+</div>
+
+<div id="view-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-lg"> 
+     <div class="modal-content">  
+        <div class="modal-header"> 
+           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+           <h4 class="modal-title">
+           <i class="fa fa-file-text"></i> UPLOAD DOKUMEN
+           </h4> 
+        </div> 
+
+        <div class="modal-body">                     
+           <div id="modal-loader" style="display: none; text-align: center;">
+           <!-- ajax loader -->
+           <img src="ajax-loader.gif">
+           </div>             
+           <!-- mysql data will be load here -->                          
+           <div id="dynamic-content"></div>
+        </div> 
+                        
+        <div class="modal-footer"> 
+            <!-- <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-remove"></i> Tutup</button>   -->
+        </div> 
+                        
+    </div> 
+  </div>
 </div>

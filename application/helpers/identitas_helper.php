@@ -441,3 +441,37 @@ if (! function_exists('file_lapkin'))
         }
 	}
 }
+
+if (! function_exists('file_perorangan'))
+{
+	function file_perorangan($nip=null, $modul_id=null, $modul=null)
+	{
+		$CI =& get_instance();
+		$CI->db->select('dokumen');
+		$CI->db->where('nip', $nip);
+		$CI->db->where('modul_id', $modul_id);
+		$CI->db->where('modul', $modul);
+		$query = $CI->db->get('file');
+        if($query->num_rows() > 0){
+			return $query->row()->dokumen;
+		}else{
+            return FALSE;
+        }
+	}
+}
+
+//jumlah komentar
+if (! function_exists('jumlah_komentar'))
+{
+	function jumlah_komentar($id)
+	{
+		$CI =& get_instance();
+		$CI->db->where('tiket_id', $id);
+        $query = $CI->db->get('komentar');
+        if($query->num_rows() > 0){
+			return $query->num_rows();
+        }else{
+            return FALSE;
+        }
+	}
+}
