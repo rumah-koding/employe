@@ -120,7 +120,7 @@
 						<dd><?= gol(cpns($nip)->gol); ?></dd>
 						<dd>
 						<a class="btn btn-xs btn-flat btn-danger pull-right" data-toggle="tooltip" data-url="cpns" title="Hapus" href="<?= site_url('data/cpns/trash/'.$nip.'/'.cpns($nip)->id); ?>"><i class="glyphicon glyphicon-trash"></i></a>
-						<a class="btn btn-xs btn-flat btn-info pull-right" data-toggle="modal" data-target="#view-modal" data-modul="cpns" data-id="<?= cpns($nip)->id; ?>" data-nip="<?= $nip; ?>" id="getUser"><i class="glyphicon glyphicon-upload"></i></a>
+						<a class="btn btn-xs btn-flat btn-info pull-right" data-toggle="modal" data-target="#view-modal" data-modul="cpns" data-id="<?= cpns($nip)->id; ?>" data-nip="<?= $nip; ?>" id="getFile"><i class="glyphicon glyphicon-upload"></i></a>
 						<a class="btn btn-xs btn-flat btn-primary pull-right" title="dokumen" href="<?= file_perorangan($nip, cpns($nip)->id, 'cpns') ? base_url('source/'.file_perorangan($nip, cpns($nip)->id, 'cpns')) : ''; ?>" ><i class="fa fa-file-text"></i></a>
 						</dd>
 						<br>
@@ -132,7 +132,7 @@
 						<dd><?= gol(pns($nip)->gol); ?></dd>
 						<dd>
 						<a class="btn btn-xs btn-flat btn-danger pull-right" data-toggle="tooltip" title="Hapus" href="<?= site_url('data/pns/trash/'.$nip.'/'.pns($nip)->id); ?>"><i class="glyphicon glyphicon-trash"></i></a>
-						<a class="btn btn-xs btn-flat btn-info pull-right" data-toggle="modal" data-target="#view-modal" data-modul="pns" data-id="<?= pns($nip)->id; ?>" data-nip="<?= $nip; ?>" id="getUser"><i class="glyphicon glyphicon-upload"></i></a>
+						<a class="btn btn-xs btn-flat btn-info pull-right" data-toggle="modal" data-target="#view-modal" data-modul="pns" data-id="<?= pns($nip)->id; ?>" data-nip="<?= $nip; ?>" id="getFile"><i class="glyphicon glyphicon-upload"></i></a>
 						<a class="btn btn-xs btn-flat btn-primary pull-right" title="dokumen" href="<?= file_perorangan($nip, pns($nip)->id, 'pns') ? base_url('source/'.file_perorangan($nip, pns($nip)->id, 'pns')) : ''; ?>"><i class="fa fa-file-text"></i></a>
 						</dd>
 						<?php endif; ?>
@@ -177,7 +177,7 @@
 							<th>TMT</th>
 							<th>NO.SK</th>
 							<th>TGL.SK</th>
-							<th width="60px"></th>
+							<th width="90px"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -192,7 +192,8 @@
 							<td><?= $row->sk; ?></td>
 							<td nowrap><?= $row->tglsk; ?></td>
 							<td>
-								<a class="btn btn-xs btn-flat btn-info" onclick="#" href="" data-toggle="tooltip" title="Upload"><i class="glyphicon glyphicon-upload"></i></a>
+								<a class="btn btn-xs btn-flat btn-primary" href="<?= file_perorangan($nip, $row->id, 'pangkat') ? base_url('source/'.file_perorangan($nip, $row->id, 'pangkat')) : ''; ?>" data-toggle="tooltip" title="Dokumen"><i class="fa fa-file-text"></i></a>
+								<a class="btn btn-xs btn-flat btn-info" data-toggle="modal" data-target="#view-modal" data-modul="pangkat" data-id="<?= $row->id; ?>" data-nip="<?= $nip; ?>" id="getFile"><i class="fa fa-upload"></i></a>
 								<a class="btn btn-xs btn-flat btn-warning" onclick="#" href="<?= site_url('data/pangkat/updated/'.$row->id); ?>" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
 								<a class="btn btn-xs btn-flat btn-danger" href="<?= site_url('data/pangkat/trash/'.$nip.'/'.$row->id); ?>" data-toggle="tooltip" title="Hapus" onclick="#"><i class="glyphicon glyphicon-trash"></i></a></td>
 						</tr>
@@ -213,7 +214,7 @@
 							<th>SATKER</th>
 							<th>UNKER</th>
 							<th>INSTANSI</th>
-							<th width="60px"></th>
+							<th width="90px"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -228,7 +229,8 @@
 							<td><?= $row->unker; ?></td>
 							<td><?= $row->instansi; ?></td>
 							<td>
-								<a class="btn btn-xs btn-flat btn-info" onclick="#" href="#" data-toggle="tooltip" title="Upload"><i class="glyphicon glyphicon-upload"></i></a>
+								<a class="btn btn-xs btn-flat btn-primary" href="<?= file_perorangan($nip, $row->id, 'jabatan') ? base_url('source/'.file_perorangan($nip, $row->id, 'jabatan')) : ''; ?>" data-toggle="tooltip" title="Dokumen"><i class="fa fa-file-text"></i></a>
+								<a class="btn btn-xs btn-flat btn-info" data-toggle="modal" data-target="#view-modal" data-modul="jabatan" data-id="<?= $row->id; ?>" data-nip="<?= $nip; ?>" id="getFile"><i class="fa fa-upload"></i></a>
 								<a class="btn btn-xs btn-flat btn-warning" onclick="#" href="<?= site_url('data/jabatan/updated/'.$row->id); ?>" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
 								<a class="btn btn-xs btn-flat btn-danger" href="<?= site_url('data/jabatan/trash/'.$nip.'/'.$row->id); ?>" data-toggle="tooltip" title="Hapus" onclick="#"><i class="glyphicon glyphicon-trash"></i></a></td>
 						</tr>
@@ -249,7 +251,7 @@
 							<th>LULUS</th>
 							<th>TEMPAT</th>
 							<th>LOKASI</th>
-							<th width="60px"></th>
+							<th width="90px"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -264,7 +266,8 @@
 							<td><?= $row->sekolah; ?></td>
 							<td><?= $row->tempat; ?></td>
 							<td>
-								<a class="btn btn-xs btn-flat btn-info" onclick="#" href="#" data-toggle="tooltip" title="Upload"><i class="glyphicon glyphicon-upload"></i></a>
+								<a class="btn btn-xs btn-flat btn-primary" href="<?= file_perorangan($nip, $row->id, 'pendidikan') ? base_url('source/'.file_perorangan($nip, $row->id, 'pendidikan')) : ''; ?>" data-toggle="tooltip" title="Dokumen"><i class="fa fa-file-text"></i></a>
+								<a class="btn btn-xs btn-flat btn-info" data-toggle="modal" data-target="#view-modal" data-modul="pendidikan" data-id="<?= $row->id; ?>" data-nip="<?= $nip; ?>" id="getFile"><i class="fa fa-upload"></i></a>
 								<a class="btn btn-xs btn-flat btn-warning" onclick="#" href="<?= site_url('data/pendidikan/updated/'.$row->id); ?>" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
 								<a class="btn btn-xs btn-flat btn-danger" href="<?= site_url('data/pendidikan/trash/'.$nip.'/'.$row->id); ?>" data-toggle="tooltip" title="Hapus" onclick="#"><i class="glyphicon glyphicon-trash"></i></a></td>
 						</tr>
@@ -285,7 +288,7 @@
 							<th>TANGGAL</th>
 							<th>TEMPAT</th>
 							<th>PELAKSANA</th>
-							<th width="60px"></th>
+							<th width="90px"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -312,7 +315,8 @@
 							<td><?= $row->tempat; ?></td>
 							<td><?= $row->panitia; ?></td>
 							<td>
-								<a class="btn btn-xs btn-flat btn-info" onclick="#" href="#" data-toggle="tooltip" title="Upload"><i class="glyphicon glyphicon-upload"></i></a>
+								<a class="btn btn-xs btn-flat btn-primary" href="<?= file_perorangan($nip, $row->id, 'diklat') ? base_url('source/'.file_perorangan($nip, $row->id, 'diklat')) : ''; ?>" data-toggle="tooltip" title="Dokumen"><i class="fa fa-file-text"></i></a>
+								<a class="btn btn-xs btn-flat btn-info" data-toggle="modal" data-target="#view-modal" data-modul="diklat" data-id="<?= $row->id; ?>" data-nip="<?= $nip; ?>" id="getFile"><i class="fa fa-upload"></i></a>
 								<a class="btn btn-xs btn-flat btn-warning" onclick="#" href="<?= site_url('data/diklat/updated/'.$row->id); ?>" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
 								<a class="btn btn-xs btn-flat btn-danger" href="<?= site_url('data/diklat/trash/'.$nip.'/'.$row->id); ?>" data-toggle="tooltip" title="Hapus" onclick="#"><i class="glyphicon glyphicon-trash"></i></a></td>
 						</tr>

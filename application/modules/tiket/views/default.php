@@ -1,7 +1,11 @@
 <div class="row">
 	<div class="col-md-12">
-		<div id="message"></div>
-		<div class="box box-success box-solid">
+    <div id="message"></div>
+		<div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <i class="icon fa fa-info"></i> Fasilitas ini sedang dalam pembaharuan dan dapat anda pergunakan pada awal bulan desember 2017.
+      </div>
+    <div class="box box-success box-solid">
 			<div class="box-header with-border">
 				<h3 class="box-title"><?= isset($head) ? $head : ''; ?></h3>
 				<div class="box-tools pull-right">

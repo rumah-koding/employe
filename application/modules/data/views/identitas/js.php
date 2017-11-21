@@ -27,7 +27,7 @@ $('#tableID1, #tableID2, #tableID3, #tableID4').DataTable({
     });
 });
 
-$(document).on('click', '#getUser', function(e){
+$(document).on('click', '#getFile', function(e){
 		e.preventDefault();
 		var uid = $(this).data('id'); // get id of clicked row
         var modul = $(this).data('modul'); // get id of clicked row
