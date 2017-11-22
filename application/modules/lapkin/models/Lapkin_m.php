@@ -74,6 +74,7 @@ class Lapkin_m extends MY_Model
     {
         $this->_get_datatables_query();
         if($_POST['length'] != -1)
+        $this->db->where('satker_id', $this->session->userdata('satker'));
         $this->db->where('deleted_at', NULL);
         $this->db->limit($_POST['length'], $_POST['start']);
         $query = $this->db->get();

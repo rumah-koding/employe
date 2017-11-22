@@ -42,9 +42,12 @@ class File extends CI_Controller {
 	}
 	
 	public function upload()
-    {
-			
-		$this->upload_file();
+    {	
+		$nip = $this->input->post('nip');
+		$modul_id = $this->input->post('modul_id');
+		$modul = $this->input->post('modul');
+
+		$this->upload_file($nip, $modul_id, $modul);
 		if($_FILES['file']['name'])
 		{
 			if ($this->upload->do_upload('file')){
@@ -80,14 +83,22 @@ class File extends CI_Controller {
 		}
     }
 	
-	private function upload_file(){
+	private function upload_file($nip=null,$modul_id=null, $modul=null ){
 		$this->load->library('upload');
-        $nmfile = "dokumen_".time(); //nama file saya beri nama langsung dan diikuti fungsi time
-        $config['upload_path'] = './source/'; //path folder
+		if($nip && $modul_id && $modul){
+			cek_folder($nip);
+			$config['upload_path'] = './source/'.$nip;
+			$nmfile = $nip.'_'.$modul.'_'.$modul_id; //nama file saya beri nama langsung dan diikuti fungsi time
+		}else{
+			$config['upload_path'] = './source/'; //path folder
+			$nmfile = "dokumen_".time(); //nama file saya beri nama langsung dan diikuti fungsi time
+		}
+
         $config['allowed_types'] = 'pdf|jpg|png|bmp'; //type yang dapat diakses bisa anda sesuaikan
         $config['max_size'] = '2048'; //maksimum besar file 2M
-        $config['max_width']  = '3000'; //lebar maksimum 1288 px
-        $config['max_height']  = '3000'; //tinggi maksimu 768 px
+        $config['max_width']  = '5000'; //lebar maksimum 5000 px
+		$config['max_height']  = '5000'; //tinggi maksimu 5000 px
+		$config['overwrite']  = TRUE; //tinggi maksimu 5000 px
         $config['file_name'] = $nmfile; //nama yang terupload nantinya
         $this->upload->initialize($config);
 	}

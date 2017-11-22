@@ -106,7 +106,8 @@ class Lapkin extends CI_Controller {
 	}
 	
 	public function upload_data(){
-        $fileName = time().'_'.$_FILES['file']['name'];
+		//$fileName = time().'_'.$_FILES['file']['name'];
+		$fileName = $this->session->userdata('satker').'_'.time().'_'.$_FILES['file']['name'];
          
         $config['upload_path'] = './document/e-lapkin/'; //buat folder dengan nama assets di root folder
         $config['file_name'] = $fileName;
@@ -169,7 +170,7 @@ class Lapkin extends CI_Controller {
 				
                 //delete_files($media['file_path']);
 				//unlink($inputFileName);
-				if (file_exists($inputFileName)) unlink($inputFileName);
+				//if (file_exists($inputFileName)) unlink($inputFileName);
             }   
         
 		$this->session->set_flashdata('flashconfirm','Data berhasil di import');
