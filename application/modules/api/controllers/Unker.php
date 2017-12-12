@@ -18,7 +18,7 @@ class Unker extends REST_Controller {
             $this->db->where('deleted_at',null);
             $unker = $this->db->get('ref_unker')->result();
         } else {
-            $this->db-select('kode as kode_unker, unker');
+            $this->db->select('kode as kode_unker, unker');
             $this->db->where('kode',$kode);
             $this->db->where('deleted_at',null);
             $unker = $this->db->get('ref_unker')->result();

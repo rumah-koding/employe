@@ -18,6 +18,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <style>.login-page{background-image: url("<?= base_url('asset/dist/img/bg.jpeg'); ?>") !important; background-repeat: no-repeat; background-attachment: fixed; background-position: center; background-size: cover;}.login-box-body{background: rgba(255,255,255, 0.8) !important}</style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">

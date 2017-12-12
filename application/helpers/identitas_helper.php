@@ -481,7 +481,7 @@ if (! function_exists('cek_folder'))
 	function cek_folder($nip=null)
 	{
 		$path = 'source/'.$nip.'/';
-		$user_name = 'www-data:www-data';
+		$user_name = 'www-data';
 		if (!file_exists($path)) {
 			mkdir($path, 0775, true);
 			//chown($path, $user_name);
